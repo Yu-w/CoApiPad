@@ -7,73 +7,78 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		880950521E709C9600F85592 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880950511E709C9600F85592 /* AppDelegate.swift */; };
-		880950541E709C9600F85592 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880950531E709C9600F85592 /* ViewController.swift */; };
-		880950571E709C9600F85592 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 880950551E709C9600F85592 /* Main.storyboard */; };
-		880950591E709C9600F85592 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 880950581E709C9600F85592 /* Assets.xcassets */; };
-		8809505C1E709C9600F85592 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8809505A1E709C9600F85592 /* LaunchScreen.storyboard */; };
-		880950671E709C9600F85592 /* ExpressLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880950661E709C9600F85592 /* ExpressLogicTests.swift */; };
-		880950721E709C9600F85592 /* ExpressLogicUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880950711E709C9600F85592 /* ExpressLogicUITests.swift */; };
-		880950861E709DD600F85592 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 880950821E709DD600F85592 /* GCDAsyncUdpSocket.m */; };
-		880950871E709DD600F85592 /* SCClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880950831E709DD600F85592 /* SCClient.swift */; };
-		880950881E709DD600F85592 /* SCMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880950841E709DD600F85592 /* SCMessage.swift */; };
-		880950891E709DD600F85592 /* SCServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880950851E709DD600F85592 /* SCServer.swift */; };
+		8809509A1E70AC0F00F85592 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880950991E70AC0F00F85592 /* AppDelegate.swift */; };
+		8809509C1E70AC0F00F85592 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8809509B1E70AC0F00F85592 /* ViewController.swift */; };
+		8809509F1E70AC0F00F85592 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8809509D1E70AC0F00F85592 /* Main.storyboard */; };
+		880950A11E70AC0F00F85592 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 880950A01E70AC0F00F85592 /* Assets.xcassets */; };
+		880950A41E70AC0F00F85592 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 880950A21E70AC0F00F85592 /* LaunchScreen.storyboard */; };
+		880950AF1E70AC0F00F85592 /* ExpressLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880950AE1E70AC0F00F85592 /* ExpressLogicTests.swift */; };
+		880950BA1E70AC1000F85592 /* ExpressLogicUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880950B91E70AC1000F85592 /* ExpressLogicUITests.swift */; };
+		880950D11E70AD3100F85592 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 880950CD1E70AD3100F85592 /* GCDAsyncUdpSocket.m */; };
+		880950D21E70AD3100F85592 /* SCClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880950CE1E70AD3100F85592 /* SCClient.swift */; };
+		880950D31E70AD3100F85592 /* SCMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880950CF1E70AD3100F85592 /* SCMessage.swift */; };
+		880950D41E70AD3100F85592 /* SCServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880950D01E70AD3100F85592 /* SCServer.swift */; };
+		880950D61E70AF1A00F85592 /* RTTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880950D51E70AF1A00F85592 /* RTTree.swift */; };
+		880950D81E70BE5B00F85592 /* NodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880950D71E70BE5B00F85592 /* NodeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		880950631E709C9600F85592 /* PBXContainerItemProxy */ = {
+		880950AB1E70AC0F00F85592 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 880950461E709C9500F85592 /* Project object */;
+			containerPortal = 8809508E1E70AC0F00F85592 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8809504D1E709C9500F85592;
+			remoteGlobalIDString = 880950951E70AC0F00F85592;
 			remoteInfo = ExpressLogic;
 		};
-		8809506E1E709C9600F85592 /* PBXContainerItemProxy */ = {
+		880950B61E70AC1000F85592 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 880950461E709C9500F85592 /* Project object */;
+			containerPortal = 8809508E1E70AC0F00F85592 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8809504D1E709C9500F85592;
+			remoteGlobalIDString = 880950951E70AC0F00F85592;
 			remoteInfo = ExpressLogic;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8809504E1E709C9600F85592 /* ExpressLogic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpressLogic.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		880950511E709C9600F85592 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		880950531E709C9600F85592 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		880950561E709C9600F85592 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		880950581E709C9600F85592 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8809505B1E709C9600F85592 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8809505D1E709C9600F85592 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		880950621E709C9600F85592 /* ExpressLogicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExpressLogicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		880950661E709C9600F85592 /* ExpressLogicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressLogicTests.swift; sourceTree = "<group>"; };
-		880950681E709C9600F85592 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8809506D1E709C9600F85592 /* ExpressLogicUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExpressLogicUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		880950711E709C9600F85592 /* ExpressLogicUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressLogicUITests.swift; sourceTree = "<group>"; };
-		880950731E709C9600F85592 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		880950811E709DD600F85592 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
-		880950821E709DD600F85592 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
-		880950831E709DD600F85592 /* SCClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCClient.swift; sourceTree = "<group>"; };
-		880950841E709DD600F85592 /* SCMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCMessage.swift; sourceTree = "<group>"; };
-		880950851E709DD600F85592 /* SCServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCServer.swift; sourceTree = "<group>"; };
+		880950961E70AC0F00F85592 /* ExpressLogic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpressLogic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		880950991E70AC0F00F85592 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8809509B1E70AC0F00F85592 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8809509E1E70AC0F00F85592 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		880950A01E70AC0F00F85592 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		880950A31E70AC0F00F85592 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		880950A51E70AC0F00F85592 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		880950AA1E70AC0F00F85592 /* ExpressLogicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExpressLogicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		880950AE1E70AC0F00F85592 /* ExpressLogicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressLogicTests.swift; sourceTree = "<group>"; };
+		880950B01E70AC0F00F85592 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		880950B51E70AC1000F85592 /* ExpressLogicUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExpressLogicUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		880950B91E70AC1000F85592 /* ExpressLogicUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressLogicUITests.swift; sourceTree = "<group>"; };
+		880950BB1E70AC1000F85592 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		880950C71E70AD0900F85592 /* ExpressLogic-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ExpressLogic-Bridging-Header.h"; sourceTree = "<group>"; };
+		880950CC1E70AD3100F85592 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
+		880950CD1E70AD3100F85592 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
+		880950CE1E70AD3100F85592 /* SCClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCClient.swift; sourceTree = "<group>"; };
+		880950CF1E70AD3100F85592 /* SCMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCMessage.swift; sourceTree = "<group>"; };
+		880950D01E70AD3100F85592 /* SCServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCServer.swift; sourceTree = "<group>"; };
+		880950D51E70AF1A00F85592 /* RTTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTTree.swift; sourceTree = "<group>"; };
+		880950D71E70BE5B00F85592 /* NodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8809504B1E709C9500F85592 /* Frameworks */ = {
+		880950931E70AC0F00F85592 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8809505F1E709C9600F85592 /* Frameworks */ = {
+		880950A71E70AC0F00F85592 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8809506A1E709C9600F85592 /* Frameworks */ = {
+		880950B21E70AC1000F85592 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -83,74 +88,77 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		880950451E709C9500F85592 = {
+		8809508D1E70AC0F00F85592 = {
 			isa = PBXGroup;
 			children = (
-				880950501E709C9600F85592 /* ExpressLogic */,
-				880950651E709C9600F85592 /* ExpressLogicTests */,
-				880950701E709C9600F85592 /* ExpressLogicUITests */,
-				8809504F1E709C9600F85592 /* Products */,
+				880950981E70AC0F00F85592 /* ExpressLogic */,
+				880950AD1E70AC0F00F85592 /* ExpressLogicTests */,
+				880950B81E70AC1000F85592 /* ExpressLogicUITests */,
+				880950971E70AC0F00F85592 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		8809504F1E709C9600F85592 /* Products */ = {
+		880950971E70AC0F00F85592 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8809504E1E709C9600F85592 /* ExpressLogic.app */,
-				880950621E709C9600F85592 /* ExpressLogicTests.xctest */,
-				8809506D1E709C9600F85592 /* ExpressLogicUITests.xctest */,
+				880950961E70AC0F00F85592 /* ExpressLogic.app */,
+				880950AA1E70AC0F00F85592 /* ExpressLogicTests.xctest */,
+				880950B51E70AC1000F85592 /* ExpressLogicUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		880950501E709C9600F85592 /* ExpressLogic */ = {
+		880950981E70AC0F00F85592 /* ExpressLogic */ = {
 			isa = PBXGroup;
 			children = (
-				880950511E709C9600F85592 /* AppDelegate.swift */,
-				880950531E709C9600F85592 /* ViewController.swift */,
-				880950551E709C9600F85592 /* Main.storyboard */,
-				880950581E709C9600F85592 /* Assets.xcassets */,
-				8809505A1E709C9600F85592 /* LaunchScreen.storyboard */,
-				8809505D1E709C9600F85592 /* Info.plist */,
-				8809507F1E709DD600F85592 /* Venders */,
+				880950991E70AC0F00F85592 /* AppDelegate.swift */,
+				8809509B1E70AC0F00F85592 /* ViewController.swift */,
+				880950D71E70BE5B00F85592 /* NodeView.swift */,
+				880950D51E70AF1A00F85592 /* RTTree.swift */,
+				8809509D1E70AC0F00F85592 /* Main.storyboard */,
+				880950A01E70AC0F00F85592 /* Assets.xcassets */,
+				880950A21E70AC0F00F85592 /* LaunchScreen.storyboard */,
+				880950A51E70AC0F00F85592 /* Info.plist */,
+				880950C71E70AD0900F85592 /* ExpressLogic-Bridging-Header.h */,
+				880950CA1E70AD3100F85592 /* Venders */,
 			);
 			path = ExpressLogic;
 			sourceTree = "<group>";
 		};
-		880950651E709C9600F85592 /* ExpressLogicTests */ = {
+		880950AD1E70AC0F00F85592 /* ExpressLogicTests */ = {
 			isa = PBXGroup;
 			children = (
-				880950661E709C9600F85592 /* ExpressLogicTests.swift */,
-				880950681E709C9600F85592 /* Info.plist */,
+				880950AE1E70AC0F00F85592 /* ExpressLogicTests.swift */,
+				880950B01E70AC0F00F85592 /* Info.plist */,
 			);
 			path = ExpressLogicTests;
 			sourceTree = "<group>";
 		};
-		880950701E709C9600F85592 /* ExpressLogicUITests */ = {
+		880950B81E70AC1000F85592 /* ExpressLogicUITests */ = {
 			isa = PBXGroup;
 			children = (
-				880950711E709C9600F85592 /* ExpressLogicUITests.swift */,
-				880950731E709C9600F85592 /* Info.plist */,
+				880950B91E70AC1000F85592 /* ExpressLogicUITests.swift */,
+				880950BB1E70AC1000F85592 /* Info.plist */,
 			);
 			path = ExpressLogicUITests;
 			sourceTree = "<group>";
 		};
-		8809507F1E709DD600F85592 /* Venders */ = {
+		880950CA1E70AD3100F85592 /* Venders */ = {
 			isa = PBXGroup;
 			children = (
-				880950801E709DD600F85592 /* SwiftCoAP_Library */,
+				880950CB1E70AD3100F85592 /* SwiftCoAP_Library */,
 			);
 			path = Venders;
 			sourceTree = "<group>";
 		};
-		880950801E709DD600F85592 /* SwiftCoAP_Library */ = {
+		880950CB1E70AD3100F85592 /* SwiftCoAP_Library */ = {
 			isa = PBXGroup;
 			children = (
-				880950811E709DD600F85592 /* GCDAsyncUdpSocket.h */,
-				880950821E709DD600F85592 /* GCDAsyncUdpSocket.m */,
-				880950831E709DD600F85592 /* SCClient.swift */,
-				880950841E709DD600F85592 /* SCMessage.swift */,
-				880950851E709DD600F85592 /* SCServer.swift */,
+				880950CC1E70AD3100F85592 /* GCDAsyncUdpSocket.h */,
+				880950CD1E70AD3100F85592 /* GCDAsyncUdpSocket.m */,
+				880950CE1E70AD3100F85592 /* SCClient.swift */,
+				880950CF1E70AD3100F85592 /* SCMessage.swift */,
+				880950D01E70AD3100F85592 /* SCServer.swift */,
 			);
 			path = SwiftCoAP_Library;
 			sourceTree = "<group>";
@@ -158,13 +166,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8809504D1E709C9500F85592 /* ExpressLogic */ = {
+		880950951E70AC0F00F85592 /* ExpressLogic */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 880950761E709C9600F85592 /* Build configuration list for PBXNativeTarget "ExpressLogic" */;
+			buildConfigurationList = 880950BE1E70AC1000F85592 /* Build configuration list for PBXNativeTarget "ExpressLogic" */;
 			buildPhases = (
-				8809504A1E709C9500F85592 /* Sources */,
-				8809504B1E709C9500F85592 /* Frameworks */,
-				8809504C1E709C9500F85592 /* Resources */,
+				880950921E70AC0F00F85592 /* Sources */,
+				880950931E70AC0F00F85592 /* Frameworks */,
+				880950941E70AC0F00F85592 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -172,75 +180,76 @@
 			);
 			name = ExpressLogic;
 			productName = ExpressLogic;
-			productReference = 8809504E1E709C9600F85592 /* ExpressLogic.app */;
+			productReference = 880950961E70AC0F00F85592 /* ExpressLogic.app */;
 			productType = "com.apple.product-type.application";
 		};
-		880950611E709C9600F85592 /* ExpressLogicTests */ = {
+		880950A91E70AC0F00F85592 /* ExpressLogicTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 880950791E709C9600F85592 /* Build configuration list for PBXNativeTarget "ExpressLogicTests" */;
+			buildConfigurationList = 880950C11E70AC1000F85592 /* Build configuration list for PBXNativeTarget "ExpressLogicTests" */;
 			buildPhases = (
-				8809505E1E709C9600F85592 /* Sources */,
-				8809505F1E709C9600F85592 /* Frameworks */,
-				880950601E709C9600F85592 /* Resources */,
+				880950A61E70AC0F00F85592 /* Sources */,
+				880950A71E70AC0F00F85592 /* Frameworks */,
+				880950A81E70AC0F00F85592 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				880950641E709C9600F85592 /* PBXTargetDependency */,
+				880950AC1E70AC0F00F85592 /* PBXTargetDependency */,
 			);
 			name = ExpressLogicTests;
 			productName = ExpressLogicTests;
-			productReference = 880950621E709C9600F85592 /* ExpressLogicTests.xctest */;
+			productReference = 880950AA1E70AC0F00F85592 /* ExpressLogicTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		8809506C1E709C9600F85592 /* ExpressLogicUITests */ = {
+		880950B41E70AC1000F85592 /* ExpressLogicUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8809507C1E709C9600F85592 /* Build configuration list for PBXNativeTarget "ExpressLogicUITests" */;
+			buildConfigurationList = 880950C41E70AC1000F85592 /* Build configuration list for PBXNativeTarget "ExpressLogicUITests" */;
 			buildPhases = (
-				880950691E709C9600F85592 /* Sources */,
-				8809506A1E709C9600F85592 /* Frameworks */,
-				8809506B1E709C9600F85592 /* Resources */,
+				880950B11E70AC1000F85592 /* Sources */,
+				880950B21E70AC1000F85592 /* Frameworks */,
+				880950B31E70AC1000F85592 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				8809506F1E709C9600F85592 /* PBXTargetDependency */,
+				880950B71E70AC1000F85592 /* PBXTargetDependency */,
 			);
 			name = ExpressLogicUITests;
 			productName = ExpressLogicUITests;
-			productReference = 8809506D1E709C9600F85592 /* ExpressLogicUITests.xctest */;
+			productReference = 880950B51E70AC1000F85592 /* ExpressLogicUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		880950461E709C9500F85592 /* Project object */ = {
+		8809508E1E70AC0F00F85592 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Express Logic";
 				TargetAttributes = {
-					8809504D1E709C9500F85592 = {
+					880950951E70AC0F00F85592 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = BLNBM6S947;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
-					880950611E709C9600F85592 = {
+					880950A91E70AC0F00F85592 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = BLNBM6S947;
 						ProvisioningStyle = Automatic;
-						TestTargetID = 8809504D1E709C9500F85592;
+						TestTargetID = 880950951E70AC0F00F85592;
 					};
-					8809506C1E709C9600F85592 = {
+					880950B41E70AC1000F85592 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = BLNBM6S947;
 						ProvisioningStyle = Automatic;
-						TestTargetID = 8809504D1E709C9500F85592;
+						TestTargetID = 880950951E70AC0F00F85592;
 					};
 				};
 			};
-			buildConfigurationList = 880950491E709C9500F85592 /* Build configuration list for PBXProject "ExpressLogic" */;
+			buildConfigurationList = 880950911E70AC0F00F85592 /* Build configuration list for PBXProject "ExpressLogic" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -248,37 +257,37 @@
 				en,
 				Base,
 			);
-			mainGroup = 880950451E709C9500F85592;
-			productRefGroup = 8809504F1E709C9600F85592 /* Products */;
+			mainGroup = 8809508D1E70AC0F00F85592;
+			productRefGroup = 880950971E70AC0F00F85592 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8809504D1E709C9500F85592 /* ExpressLogic */,
-				880950611E709C9600F85592 /* ExpressLogicTests */,
-				8809506C1E709C9600F85592 /* ExpressLogicUITests */,
+				880950951E70AC0F00F85592 /* ExpressLogic */,
+				880950A91E70AC0F00F85592 /* ExpressLogicTests */,
+				880950B41E70AC1000F85592 /* ExpressLogicUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		8809504C1E709C9500F85592 /* Resources */ = {
+		880950941E70AC0F00F85592 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8809505C1E709C9600F85592 /* LaunchScreen.storyboard in Resources */,
-				880950591E709C9600F85592 /* Assets.xcassets in Resources */,
-				880950571E709C9600F85592 /* Main.storyboard in Resources */,
+				880950A41E70AC0F00F85592 /* LaunchScreen.storyboard in Resources */,
+				880950A11E70AC0F00F85592 /* Assets.xcassets in Resources */,
+				8809509F1E70AC0F00F85592 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		880950601E709C9600F85592 /* Resources */ = {
+		880950A81E70AC0F00F85592 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8809506B1E709C9600F85592 /* Resources */ = {
+		880950B31E70AC1000F85592 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -288,63 +297,65 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8809504A1E709C9500F85592 /* Sources */ = {
+		880950921E70AC0F00F85592 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				880950541E709C9600F85592 /* ViewController.swift in Sources */,
-				880950861E709DD600F85592 /* GCDAsyncUdpSocket.m in Sources */,
-				880950881E709DD600F85592 /* SCMessage.swift in Sources */,
-				880950871E709DD600F85592 /* SCClient.swift in Sources */,
-				880950891E709DD600F85592 /* SCServer.swift in Sources */,
-				880950521E709C9600F85592 /* AppDelegate.swift in Sources */,
+				8809509C1E70AC0F00F85592 /* ViewController.swift in Sources */,
+				880950D11E70AD3100F85592 /* GCDAsyncUdpSocket.m in Sources */,
+				880950D81E70BE5B00F85592 /* NodeView.swift in Sources */,
+				880950D31E70AD3100F85592 /* SCMessage.swift in Sources */,
+				880950D21E70AD3100F85592 /* SCClient.swift in Sources */,
+				880950D61E70AF1A00F85592 /* RTTree.swift in Sources */,
+				880950D41E70AD3100F85592 /* SCServer.swift in Sources */,
+				8809509A1E70AC0F00F85592 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8809505E1E709C9600F85592 /* Sources */ = {
+		880950A61E70AC0F00F85592 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				880950671E709C9600F85592 /* ExpressLogicTests.swift in Sources */,
+				880950AF1E70AC0F00F85592 /* ExpressLogicTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		880950691E709C9600F85592 /* Sources */ = {
+		880950B11E70AC1000F85592 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				880950721E709C9600F85592 /* ExpressLogicUITests.swift in Sources */,
+				880950BA1E70AC1000F85592 /* ExpressLogicUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		880950641E709C9600F85592 /* PBXTargetDependency */ = {
+		880950AC1E70AC0F00F85592 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8809504D1E709C9500F85592 /* ExpressLogic */;
-			targetProxy = 880950631E709C9600F85592 /* PBXContainerItemProxy */;
+			target = 880950951E70AC0F00F85592 /* ExpressLogic */;
+			targetProxy = 880950AB1E70AC0F00F85592 /* PBXContainerItemProxy */;
 		};
-		8809506F1E709C9600F85592 /* PBXTargetDependency */ = {
+		880950B71E70AC1000F85592 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8809504D1E709C9500F85592 /* ExpressLogic */;
-			targetProxy = 8809506E1E709C9600F85592 /* PBXContainerItemProxy */;
+			target = 880950951E70AC0F00F85592 /* ExpressLogic */;
+			targetProxy = 880950B61E70AC1000F85592 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		880950551E709C9600F85592 /* Main.storyboard */ = {
+		8809509D1E70AC0F00F85592 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				880950561E709C9600F85592 /* Base */,
+				8809509E1E70AC0F00F85592 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		8809505A1E709C9600F85592 /* LaunchScreen.storyboard */ = {
+		880950A21E70AC0F00F85592 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8809505B1E709C9600F85592 /* Base */,
+				880950A31E70AC0F00F85592 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -352,7 +363,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		880950741E709C9600F85592 /* Debug */ = {
+		880950BC1E70AC1000F85592 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -402,7 +413,7 @@
 			};
 			name = Debug;
 		};
-		880950751E709C9600F85592 /* Release */ = {
+		880950BD1E70AC1000F85592 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -445,33 +456,38 @@
 			};
 			name = Release;
 		};
-		880950771E709C9600F85592 /* Debug */ = {
+		880950BF1E70AC1000F85592 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = BLNBM6S947;
 				INFOPLIST_FILE = ExpressLogic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = expresslogic.ExpressLogic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ExpressLogic/ExpressLogic-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
-		880950781E709C9600F85592 /* Release */ = {
+		880950C01E70AC1000F85592 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = BLNBM6S947;
 				INFOPLIST_FILE = ExpressLogic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = expresslogic.ExpressLogic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ExpressLogic/ExpressLogic-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
-		8809507A1E709C9600F85592 /* Debug */ = {
+		880950C21E70AC1000F85592 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -486,7 +502,7 @@
 			};
 			name = Debug;
 		};
-		8809507B1E709C9600F85592 /* Release */ = {
+		880950C31E70AC1000F85592 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -501,7 +517,7 @@
 			};
 			name = Release;
 		};
-		8809507D1E709C9600F85592 /* Debug */ = {
+		880950C51E70AC1000F85592 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -515,7 +531,7 @@
 			};
 			name = Debug;
 		};
-		8809507E1E709C9600F85592 /* Release */ = {
+		880950C61E70AC1000F85592 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -532,40 +548,40 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		880950491E709C9500F85592 /* Build configuration list for PBXProject "ExpressLogic" */ = {
+		880950911E70AC0F00F85592 /* Build configuration list for PBXProject "ExpressLogic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				880950741E709C9600F85592 /* Debug */,
-				880950751E709C9600F85592 /* Release */,
+				880950BC1E70AC1000F85592 /* Debug */,
+				880950BD1E70AC1000F85592 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		880950761E709C9600F85592 /* Build configuration list for PBXNativeTarget "ExpressLogic" */ = {
+		880950BE1E70AC1000F85592 /* Build configuration list for PBXNativeTarget "ExpressLogic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				880950771E709C9600F85592 /* Debug */,
-				880950781E709C9600F85592 /* Release */,
+				880950BF1E70AC1000F85592 /* Debug */,
+				880950C01E70AC1000F85592 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		880950791E709C9600F85592 /* Build configuration list for PBXNativeTarget "ExpressLogicTests" */ = {
+		880950C11E70AC1000F85592 /* Build configuration list for PBXNativeTarget "ExpressLogicTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8809507A1E709C9600F85592 /* Debug */,
-				8809507B1E709C9600F85592 /* Release */,
+				880950C21E70AC1000F85592 /* Debug */,
+				880950C31E70AC1000F85592 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		8809507C1E709C9600F85592 /* Build configuration list for PBXNativeTarget "ExpressLogicUITests" */ = {
+		880950C41E70AC1000F85592 /* Build configuration list for PBXNativeTarget "ExpressLogicUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8809507D1E709C9600F85592 /* Debug */,
-				8809507E1E709C9600F85592 /* Release */,
+				880950C51E70AC1000F85592 /* Debug */,
+				880950C61E70AC1000F85592 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 880950461E709C9500F85592 /* Project object */;
+	rootObject = 8809508E1E70AC0F00F85592 /* Project object */;
 }
