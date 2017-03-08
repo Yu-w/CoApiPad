@@ -48,6 +48,11 @@ class ViewController: UIViewController {
             self.scrollView.addSubview(view)
         }
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        Line.drawLine(in: self.view, from: CGPoint(x: 0, y: 0), to: [self.scrollView.center])
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
