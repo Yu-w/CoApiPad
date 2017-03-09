@@ -67,7 +67,7 @@ class NodeView: UIView {
 extension NodeView {
     
     func tailPoint() -> CGPoint {
-        return CGPoint(x: self.frame.maxX + spacing, y: self.frame.midY)
+        return CGPoint(x: self.frame.maxX + spacing * 1.6, y: self.frame.midY)
     }
     
     func headPoint() -> CGPoint {
