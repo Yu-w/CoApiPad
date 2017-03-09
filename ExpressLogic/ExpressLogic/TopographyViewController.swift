@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class TopographyViewController: UIViewController {
     
     var scrollView: UIScrollView!
     let heightSpacing: CGFloat = 32
@@ -44,13 +44,16 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let screenBounds = UIScreen.main.bounds
-        let headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: screenBounds.width, height: 160))
-        scrollView = UIScrollView(frame: CGRect(x: 0, y: 160, width: screenBounds.width, height: UIScreen.main.bounds.height - 160))
+        let headerHeight: CGFloat = 160
+        let bounds = view.bounds
+        let headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: bounds.width, height: headerHeight))
+        scrollView = UIScrollView(frame: CGRect(x: 0, y: headerHeight, width: bounds.width, height: bounds.height - headerHeight))
         self.view.addSubview(headerView)
         self.view.addSubview(scrollView)
         headerView.setNeedsLayout()
-        scrollView.contentSize = CGSize(width: screenBounds.width * 1.2, height: screenBounds.height * 1.4)
+        scrollView.contentSize = CGSize.zero
+        scrollView.setContentOffset(CGPoint.zero, animated: false)
+        scrollView.delegate = self
         let rttree = RTTree(root: rootAddress, routingInfo: routingInfo)
         routingMap.forEach { _, node in
             let view = NodeView(frame: CGRect(
@@ -64,6 +67,17 @@ class ViewController: UIViewController {
             node.nodeView = view
         }
         drawLineBetweenNodes(root: rttree.root)
+        let maxSize = routingMap
+            .map {_, v in v}
+            .flatMap {n in n.nodeView}
+            .reduce(CGSize.zero) {
+                accum, cur in
+                return CGSize(width: max(accum.width, cur.frame.maxX),
+                              height: max(accum.height, cur.frame.maxY))
+        }
+        scrollView.contentSize = CGSize.init(width: maxSize.width + widthSpacing,
+                                             height: maxSize.height + heightSpacing * 4)
+        
     }
     
     private func drawLineBetweenNodes(root: RTNode) {
@@ -90,10 +104,6 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-    @IBAction func buttonDidClicked(_ sender: UIButton) {
-
     }
 
 }
