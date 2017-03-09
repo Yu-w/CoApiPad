@@ -11,8 +11,8 @@ import UIKit
 class ViewController: UIViewController {
     
     var scrollView: UIScrollView!
-    let heightSpacing: CGFloat = 10
-    let widthSpacing: CGFloat = 120
+    let heightSpacing: CGFloat = 32
+    let widthSpacing: CGFloat = 100
         
     let rootAddress = "2001:470:f81e:3000:2c09:aff:fe00:76c8"
     let routingInfo = [("fe80:0000:0000:0000:fec2:3d00:0004:a2da", "fe80:0000:0000:0000:fec2:3d00:0004:a2da"),
@@ -48,16 +48,16 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.view.backgroundColor = UIColor.darkGray
+//        self.view.backgroundColor = UIColor.darkGray
         let screenBounds = UIScreen.main.bounds
-        scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: screenBounds.width, height: UIScreen.main.bounds.height))
+        scrollView = UIScrollView(frame: CGRect(x: 0, y: 160, width: screenBounds.width, height: UIScreen.main.bounds.height - 160))
         self.view.addSubview(scrollView)
         scrollView.contentSize = CGSize(width: screenBounds.width * 1.4, height: screenBounds.height * 2)
         _ = RTTree(root: rootAddress, routingInfo: routingInfo)
         routingMap.forEach { addr, node in
             let view = NodeView(frame: CGRect(
                 x: CGFloat(node.level - 1) * (NodeView.size.width + widthSpacing) + widthSpacing,
-                y: (NodeView.size.height + heightSpacing) * CGFloat(node.top),
+                y: (NodeView.size.height / 2 + heightSpacing) * CGFloat(node.top),
                 width:  NodeView.size.width,
                 height: NodeView.size.height))
             view.setNodeString(node.address)
