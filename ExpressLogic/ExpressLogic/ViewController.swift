@@ -46,9 +46,10 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         let screenBounds = UIScreen.main.bounds
         let headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: screenBounds.width, height: 160))
-        self.view.addSubview(headerView)
         scrollView = UIScrollView(frame: CGRect(x: 0, y: 160, width: screenBounds.width, height: UIScreen.main.bounds.height - 160))
+        self.view.addSubview(headerView)
         self.view.addSubview(scrollView)
+        headerView.setNeedsLayout()
         scrollView.contentSize = CGSize(width: screenBounds.width * 1.2, height: screenBounds.height * 1.4)
         let rttree = RTTree(root: rootAddress, routingInfo: routingInfo)
         routingMap.forEach { _, node in
