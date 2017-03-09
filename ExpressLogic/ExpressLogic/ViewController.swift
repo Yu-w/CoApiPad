@@ -45,6 +45,8 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let screenBounds = UIScreen.main.bounds
+        let headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: screenBounds.width, height: 160))
+        self.view.addSubview(headerView)
         scrollView = UIScrollView(frame: CGRect(x: 0, y: 160, width: screenBounds.width, height: UIScreen.main.bounds.height - 160))
         self.view.addSubview(scrollView)
         scrollView.contentSize = CGSize(width: screenBounds.width * 1.4, height: screenBounds.height * 2)
