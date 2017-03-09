@@ -13,20 +13,20 @@ class Line: NSObject {
     
     static func drawLine(in view: UIView, from start: CGPoint, to end: [CGPoint]) {
         
-        UIGraphicsBeginImageContext(view.bounds.size);
-        let context = UIGraphicsGetCurrentContext()
-        context?.setStrokeColor(UIColor.white.cgColor)
-        context?.move(to: start)
-        
+        let line = CAShapeLayer()
+        let linePath = UIBezierPath()
+        linePath.move(to: start)
+
         end.forEach { (p) in
-            let mid = CGPoint(x: start.x, y: p.y)
-            context?.addLine(to: mid)
-            context?.addLine(to: y)
+            linePath.addLine(to: CGPoint(x: start.x, y: p.y))
+            linePath.addLine(to: p)
         }
         
-        UIGraphicsEndImageContext()
-        
-        
+        line.path = linePath.cgPath
+        line.strokeColor = UIColor.white.cgColor
+        line.fillColor = UIColor.clear.cgColor
+        line.lineWidth = 3
+        view.layer.addSublayer(line)
         
     }
     

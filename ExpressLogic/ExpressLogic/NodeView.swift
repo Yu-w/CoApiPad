@@ -11,15 +11,25 @@ import UIKit
 class NodeView: UIView {
 
     var label: UILabel!
+    var iconImageView: UIImageView!
     
-    static let size = CGSize(width: 180, height: 44)
-    
+    let spacing: CGFloat = 16
+    static let size = CGSize(width: 280, height: 72)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         label = UILabel(frame: CGRect.zero)
+        iconImageView = UIImageView(frame: CGRect.zero)
+        
+        iconImageView.backgroundColor = UIColor.blue
+        iconImageView.image = #imageLiteral(resourceName: "circuit-icon")
+        
         self.addSubview(label)
-        self.backgroundColor = UIColor.red
+        self.addSubview(iconImageView)
+        
+        self.backgroundColor = UIColor.white
+        self.layer.cornerRadius = 6
+        self.clipsToBounds = true
     }
     
     func setNodeString(_ text: String) {
@@ -29,6 +39,7 @@ class NodeView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         label.frame = self.bounds
+        iconImageView.frame = CGRect(x: spacing, y: self.center.y - 16, width: 24, height: 32)
     }
     
     required init?(coder aDecoder: NSCoder) {
