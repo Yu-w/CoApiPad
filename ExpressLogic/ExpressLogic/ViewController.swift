@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     var scrollView: UIScrollView!
     let heightSpacing: CGFloat = 32
-    let widthSpacing: CGFloat = 100
+    let widthSpacing: CGFloat = 120
         
     let rootAddress = "2001:470:f81e:3000:2c09:aff:fe00:76c8"
     let routingInfo = [("fe80:0000:0000:0000:fec2:3d00:0004:a2da", "fe80:0000:0000:0000:fec2:3d00:0004:a2da"),
