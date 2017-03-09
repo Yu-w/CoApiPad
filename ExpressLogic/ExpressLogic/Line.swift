@@ -24,11 +24,17 @@ class Line: NSObject {
         linePath.move(to: start)
 
         end.forEach { (p) in
-            linePath.addLine(to: CGPoint(x: start.x, y: p.y-15))
-            linePath.addQuadCurve(to: CGPoint(x: start.x+15, y: p.y), controlPoint:CGPoint(x: start.x, y: p.y))
+            if p.y>start.y{
+                linePath.addLine(to: CGPoint(x: start.x, y: p.y-15))
+                linePath.addQuadCurve(to: CGPoint(x: start.x+15, y: p.y), controlPoint:CGPoint(x: start.x, y: p.y))
+            }else{
+                linePath.addLine(to: CGPoint(x: start.x, y: p.y+15))
+                linePath.addQuadCurve(to: CGPoint(x: start.x+15, y: p.y), controlPoint:CGPoint(x: start.x, y: p.y))
+            }
             linePath.addLine(to: p)
+            linePath.move(to: start)
         }
-        
+        linePath.close()
         line.path = linePath.cgPath
         line.strokeColor = UIColor.white.cgColor
         line.fillColor = UIColor.clear.cgColor
