@@ -80,10 +80,18 @@ class ViewController: UIViewController {
         }
     }
     
+<<<<<<< HEAD
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        Line.drawLine(in: self.scrollView, from: CGPoint(x: 0, y: 0), to: [self.scrollView.center])
+    }
+
+=======
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
+>>>>>>> 244a9a862f192998c0dbb910fc58dc66beb66b20
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
