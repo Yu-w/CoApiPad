@@ -10,21 +10,6 @@ import Foundation
 
 var routingMap = [String: RTNode]()
 
-class RTNode {
-    
-    var address: String
-    var children: [RTNode] = []
-    
-    var width: Int = 0
-    var level: Int = 0
-    var top: Int = 0
-    
-    init(address: String) {
-        self.address = address
-    }
-    
-}
-
 class RTTree {
     
     var root: RTNode
@@ -77,7 +62,8 @@ class RTTree {
     }
     
     func maximumNodes() {
-        maximumNodes(current: root, level: 1)
+        _ = maximumNodes(current: root, level: 1)
     }
 
 }
+
