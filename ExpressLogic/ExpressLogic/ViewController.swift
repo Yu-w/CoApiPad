@@ -29,21 +29,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Poly2.png")!)
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "Poly2.png")
+        backgroundImage.contentMode = UIViewContentMode.scaleAspectFill
+        self.view.insertSubview(backgroundImage, at: 0)
         
         let blackView = UIView()
         blackView.frame = view.bounds
         blackView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         blackView.backgroundColor = UIColor(white: 0, alpha: 0.5)
         self.view.addSubview(blackView)
-        
-        let logo = UIImageView(frame: CGRect(x: 84, y: 75, width: 222, height: 37))
-        logo.image = UIImage(named: "logo.png")
-        self.view.addSubview(logo)
-        
-        func ratingButtonTapped() {
-            print("Button pressed")
-        }
+
     }
     
     override func viewWillAppear(_ animated: Bool) {

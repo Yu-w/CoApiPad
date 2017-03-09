@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		558EC9F51E71BB540023F3E4 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558EC9F41E71BB540023F3E4 /* HeaderView.swift */; };
 		8809509A1E70AC0F00F85592 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880950991E70AC0F00F85592 /* AppDelegate.swift */; };
 		8809509C1E70AC0F00F85592 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8809509B1E70AC0F00F85592 /* ViewController.swift */; };
 		8809509F1E70AC0F00F85592 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8809509D1E70AC0F00F85592 /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		558EC9F41E71BB540023F3E4 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		880950961E70AC0F00F85592 /* ExpressLogic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpressLogic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		880950991E70AC0F00F85592 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8809509B1E70AC0F00F85592 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				880950D91E71194600F85592 /* CoApService.swift */,
 				BAC54B241E70C3E20056CD5E /* Line.swift */,
 				880950D71E70BE5B00F85592 /* NodeView.swift */,
+				558EC9F41E71BB540023F3E4 /* HeaderView.swift */,
 				880950DB1E711B2D00F85592 /* RTNode.swift */,
 				880950D51E70AF1A00F85592 /* RTTree.swift */,
 				8809509D1E70AC0F00F85592 /* Main.storyboard */,
@@ -317,6 +320,7 @@
 				880950DA1E71194600F85592 /* CoApService.swift in Sources */,
 				880950D21E70AD3100F85592 /* SCClient.swift in Sources */,
 				880950D61E70AF1A00F85592 /* RTTree.swift in Sources */,
+				558EC9F51E71BB540023F3E4 /* HeaderView.swift in Sources */,
 				BAC54B251E70C3E20056CD5E /* Line.swift in Sources */,
 				880950D41E70AD3100F85592 /* SCServer.swift in Sources */,
 				8809509A1E70AC0F00F85592 /* AppDelegate.swift in Sources */,
