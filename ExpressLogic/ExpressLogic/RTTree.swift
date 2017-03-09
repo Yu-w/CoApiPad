@@ -10,22 +10,6 @@ import Foundation
 
 var routingMap = [String: RTNode]()
 
-class RTNode {
-    
-    var address: String
-    var children: [RTNode] = []
-    
-    var width: Int = 0
-    var level: Int = 0
-    var top: Int = 0
-    var nodeView: NodeView?
-    
-    init(address: String) {
-        self.address = address
-    }
-    
-}
-
 class RTTree {
     
     var root: RTNode
