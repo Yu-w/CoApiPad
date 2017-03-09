@@ -11,7 +11,6 @@ import UIKit
 class HeaderView: UIView {
     var logo: UIImageView!
     var tabView: UIView!
-    var underlineView: UIView!
     var tabs: [UIButton] = []
     var previousTab: UIButton!
     
