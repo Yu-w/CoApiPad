@@ -26,7 +26,9 @@ class NodeView: UIView {
         iconImageView.image = #imageLiteral(resourceName: "circuit-icon")
         leftLabel.textColor = UIColor(red:0.96, green:0.65, blue:0.14, alpha:1.00)
         leftLabel.text = "ATMEL SAM V71"
+        leftLabel.textAlignment = .right
         label.lineBreakMode = .byTruncatingMiddle
+        label.textAlignment = .right
         
         self.addSubview(label)
         self.addSubview(leftLabel)
@@ -43,14 +45,15 @@ class NodeView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        iconImageView.frame = CGRect(x: spacing, y: NodeView.size.height / 2 - 16, width: 24, height: 32)
-        leftLabel.frame = CGRect(x: iconImageView.frame.origin.x + spacing + 24,
+        let iconHeight: CGFloat = 30
+        iconImageView.frame = CGRect(x: spacing * 1.2, y: self.bounds.midY - iconHeight / 2, width: iconHeight * 2 / 3, height: iconHeight)
+        leftLabel.frame = CGRect(x: iconImageView.bounds.maxX + spacing,
                                  y: 0,
                                  width: 140,
                                  height: NodeView.size.height)
-        label.frame = CGRect(x: iconImageView.frame.origin.x + spacing + 24 + leftLabel.bounds.width,
+        label.frame = CGRect(x: leftLabel.bounds.maxX + spacing * 3,
                              y: 0,
-                             width: NodeView.size.width - (iconImageView.frame.origin.x + spacing + 24 + leftLabel.bounds.width),
+                             width: NodeView.size.width - (leftLabel.bounds.maxX + spacing * 4),
                              height: NodeView.size.height)
     }
     
@@ -58,4 +61,17 @@ class NodeView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+}
+
+
+extension NodeView {
+    
+    func tailPoint() -> CGPoint {
+        return CGPoint(x: self.frame.maxX + spacing, y: self.frame.midY)
+    }
+    
+    func headPoint() -> CGPoint {
+        return CGPoint(x: self.frame.minX, y: self.frame.midY)
+    }
+    
 }

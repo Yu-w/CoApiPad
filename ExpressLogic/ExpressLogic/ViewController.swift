@@ -48,13 +48,12 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        self.view.backgroundColor = UIColor.darkGray
         let screenBounds = UIScreen.main.bounds
         scrollView = UIScrollView(frame: CGRect(x: 0, y: 160, width: screenBounds.width, height: UIScreen.main.bounds.height - 160))
         self.view.addSubview(scrollView)
         scrollView.contentSize = CGSize(width: screenBounds.width * 1.4, height: screenBounds.height * 2)
-        _ = RTTree(root: rootAddress, routingInfo: routingInfo)
-        routingMap.forEach { addr, node in
+        let rttree = RTTree(root: rootAddress, routingInfo: routingInfo)
+        routingMap.forEach { _, node in
             let view = NodeView(frame: CGRect(
                 x: CGFloat(node.level - 1) * (NodeView.size.width + widthSpacing) + widthSpacing,
                 y: (NodeView.size.height / 2 + heightSpacing) * CGFloat(node.top),
@@ -63,6 +62,21 @@ class ViewController: UIViewController {
             view.setNodeString(node.address)
             view.setNeedsLayout()
             self.scrollView.addSubview(view)
+            node.nodeView = view
+        }
+        drawLineBetweenNodes(root: rttree.root)
+    }
+    
+    private func drawLineBetweenNodes(root: RTNode) {
+        if !root.children.isEmpty {
+            if let nodeView = root.nodeView {
+                let startPoint = nodeView.tailPoint()
+                let endPoints = root.children
+                    .flatMap { n in n.nodeView }
+                    .map { x in x.headPoint() }
+                // draw line: Line.drawLine(in: scrollView, from: startPoint, to: endPoints)
+            }
+            root.children.forEach { node in drawLineBetweenNodes(root: node) }
         }
     }
     

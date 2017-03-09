@@ -18,6 +18,7 @@ class RTNode {
     var width: Int = 0
     var level: Int = 0
     var top: Int = 0
+    var nodeView: NodeView?
     
     init(address: String) {
         self.address = address
@@ -77,7 +78,8 @@ class RTTree {
     }
     
     func maximumNodes() {
-        maximumNodes(current: root, level: 1)
+        _ = maximumNodes(current: root, level: 1)
     }
 
 }
+
