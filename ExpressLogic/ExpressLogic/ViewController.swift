@@ -74,24 +74,21 @@ class ViewController: UIViewController {
                 let endPoints = root.children
                     .flatMap { n in n.nodeView }
                     .map { x in x.headPoint() }
-                // draw line: Line.drawLine(in: scrollView, from: startPoint, to: endPoints)
+                Line.drawLine(in: scrollView, from: startPoint, to: endPoints)
             }
             root.children.forEach { node in drawLineBetweenNodes(root: node) }
         }
     }
     
-<<<<<<< HEAD
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         Line.drawLine(in: self.scrollView, from: CGPoint(x: 0, y: 0), to: [self.scrollView.center])
     }
 
-=======
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
->>>>>>> 244a9a862f192998c0dbb910fc58dc66beb66b20
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
