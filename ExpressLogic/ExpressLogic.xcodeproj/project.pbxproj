@@ -20,6 +20,7 @@
 		880950D41E70AD3100F85592 /* SCServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880950D01E70AD3100F85592 /* SCServer.swift */; };
 		880950D61E70AF1A00F85592 /* RTTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880950D51E70AF1A00F85592 /* RTTree.swift */; };
 		880950D81E70BE5B00F85592 /* NodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880950D71E70BE5B00F85592 /* NodeView.swift */; };
+		880950DA1E71194600F85592 /* CoApService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880950D91E71194600F85592 /* CoApService.swift */; };
 		BAC54B251E70C3E20056CD5E /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC54B241E70C3E20056CD5E /* Line.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		880950D01E70AD3100F85592 /* SCServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCServer.swift; sourceTree = "<group>"; };
 		880950D51E70AF1A00F85592 /* RTTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTTree.swift; sourceTree = "<group>"; };
 		880950D71E70BE5B00F85592 /* NodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeView.swift; sourceTree = "<group>"; };
+		880950D91E71194600F85592 /* CoApService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoApService.swift; sourceTree = "<group>"; };
 		BAC54B241E70C3E20056CD5E /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +117,7 @@
 			children = (
 				880950991E70AC0F00F85592 /* AppDelegate.swift */,
 				8809509B1E70AC0F00F85592 /* ViewController.swift */,
+				880950D91E71194600F85592 /* CoApService.swift */,
 				BAC54B241E70C3E20056CD5E /* Line.swift */,
 				880950D71E70BE5B00F85592 /* NodeView.swift */,
 				880950D51E70AF1A00F85592 /* RTTree.swift */,
@@ -308,6 +311,7 @@
 				880950D11E70AD3100F85592 /* GCDAsyncUdpSocket.m in Sources */,
 				880950D81E70BE5B00F85592 /* NodeView.swift in Sources */,
 				880950D31E70AD3100F85592 /* SCMessage.swift in Sources */,
+				880950DA1E71194600F85592 /* CoApService.swift in Sources */,
 				880950D21E70AD3100F85592 /* SCClient.swift in Sources */,
 				880950D61E70AF1A00F85592 /* RTTree.swift in Sources */,
 				BAC54B251E70C3E20056CD5E /* Line.swift in Sources */,

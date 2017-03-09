@@ -95,17 +95,9 @@ class ViewController: UIViewController {
     }
 
     @IBAction func buttonDidClicked(_ sender: UIButton) {
-        let m = SCMessage(code: SCCodeValue(classValue: 0, detailValue: 01)!, type: .confirmable, payload: "test".data(using: String.Encoding.utf8))
-        m.addOption(SCOption.uriPath.rawValue, data: "test".data(using: String.Encoding.utf8)!)
-        let coapClient = SCClient(delegate: self)
-        coapClient.sendCoAPMessage(m, hostName: "localhost", port: 5683)
+
     }
 
 }
 
-extension ViewController: SCClientDelegate {
-    func swiftCoapClient(_ client: SCClient, didReceiveMessage message: SCMessage) {
-        print(String(data: message.payload!, encoding: String.Encoding.utf8) as String!)
-    }
-}
 
