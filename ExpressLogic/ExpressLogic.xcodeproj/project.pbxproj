@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		559ED27E1E70C7030069311F /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 559ED27D1E70C7030069311F /* background@2x.png */; };
-		559ED2801E70C7A80069311F /* Poly2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 559ED27F1E70C7A80069311F /* Poly2@2x.png */; };
-		559ED2821E70C8BE0069311F /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 559ED2811E70C8BE0069311F /* logo@2x.png */; };
 		8809509A1E70AC0F00F85592 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880950991E70AC0F00F85592 /* AppDelegate.swift */; };
 		8809509C1E70AC0F00F85592 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8809509B1E70AC0F00F85592 /* ViewController.swift */; };
 		8809509F1E70AC0F00F85592 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8809509D1E70AC0F00F85592 /* Main.storyboard */; };
@@ -44,9 +41,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		559ED27D1E70C7030069311F /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
-		559ED27F1E70C7A80069311F /* Poly2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Poly2@2x.png"; sourceTree = "<group>"; };
-		559ED2811E70C8BE0069311F /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
 		880950961E70AC0F00F85592 /* ExpressLogic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpressLogic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		880950991E70AC0F00F85592 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8809509B1E70AC0F00F85592 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -96,16 +90,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		559ED27C1E70C6200069311F /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				559ED2811E70C8BE0069311F /* logo@2x.png */,
-				559ED27F1E70C7A80069311F /* Poly2@2x.png */,
-				559ED27D1E70C7030069311F /* background@2x.png */,
-			);
-			name = Images;
-			sourceTree = "<group>";
-		};
 		8809508D1E70AC0F00F85592 = {
 			isa = PBXGroup;
 			children = (
@@ -129,7 +113,6 @@
 		880950981E70AC0F00F85592 /* ExpressLogic */ = {
 			isa = PBXGroup;
 			children = (
-				559ED27C1E70C6200069311F /* Images */,
 				880950991E70AC0F00F85592 /* AppDelegate.swift */,
 				8809509B1E70AC0F00F85592 /* ViewController.swift */,
 				BAC54B241E70C3E20056CD5E /* Line.swift */,
@@ -295,10 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				880950A41E70AC0F00F85592 /* LaunchScreen.storyboard in Resources */,
-				559ED2821E70C8BE0069311F /* logo@2x.png in Resources */,
 				880950A11E70AC0F00F85592 /* Assets.xcassets in Resources */,
-				559ED27E1E70C7030069311F /* background@2x.png in Resources */,
-				559ED2801E70C7A80069311F /* Poly2@2x.png in Resources */,
 				8809509F1E70AC0F00F85592 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
