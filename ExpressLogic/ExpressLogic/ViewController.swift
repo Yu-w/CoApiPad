@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "Poly2.png")
+        backgroundImage.image = #imageLiteral(resourceName: "background_1")
         backgroundImage.contentMode = UIViewContentMode.scaleAspectFill
         self.view.insertSubview(backgroundImage, at: 0)
         
