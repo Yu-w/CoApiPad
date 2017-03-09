@@ -87,7 +87,11 @@ class ViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 57d028457d2ecb590e79f17dbb1190c8d2e586aa
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
