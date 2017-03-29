@@ -8,24 +8,15 @@
 
 import UIKit
 
+var routingInfo: [(String, String)] = []
+
 class TopographyViewController: UIViewController {
     
-    let coapService = CoApService()
     var scrollView: UIScrollView!
     let heightSpacing: CGFloat = 32
     let widthSpacing: CGFloat = 120
         
-    let rootAddress = "2001:470:f81e:3000:2c09:aff:fe00:76c8"
-    let routingInfo = [("fe80:0000:0000:0000:fec2:3d00:0004:a2da", "fe80:0000:0000:0000:fec2:3d00:0004:a2da"),
-                       ("fe80:0000:0000:0000:fec2:3d00:0004:7bde", "fe80:0000:0000:0000:fec2:3d00:0004:7bde"),
-                       ("fe80:0000:0000:0000:fec2:3d00:0004:a063", "fe80:0000:0000:0000:fec2:3d00:0004:a063"),
-                       ("fe80:0000:0000:0000:fec2:3d00:0004:e9c1", "fe80:0000:0000:0000:fec2:3d00:0004:e9c1"),
-                       ("2001:0470:f81e:3000:fec2:3d00:0004:a063", "2001:0470:f81e:3000:fec2:3d00:0004:a063"),
-                       ("2001:0470:f81e:3000:fec2:3d00:0004:a2da", "2001:0470:f81e:3000:fec2:3d00:0004:a2da"),
-                       ("2001:0470:f81e:3000:fec2:3d00:0004:7bde", "2001:0470:f81e:3000:fec2:3d00:0004:7bde"),
-                       ("2001:0470:f81e:3000:fec2:3d00:0004:e9c1", "2001:0470:f81e:3000:fec2:3d00:0004:e9c1"),
-                       ("2001:0470:f81e:3000:0204:2519:1801:aa3b", "2001:0470:f81e:3000:fec2:3d00:0004:a063"),
-                       ("2001:0470:f81e:3000:0204:2519:1801:aa3a", "2001:0470:f81e:3000:fec2:3d00:0004:a063")]
+    let rootAddress = "2001:0470:f81e:3000:2c09:0aff:fe00:76c8"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,14 +35,12 @@ class TopographyViewController: UIViewController {
         let api: Array<UInt8> = [1]
         let data = Data(bytes: api)
         
-        coapService.delegate = self
-//        CoApService.sharedInstance.delegate = self
-        coapService.sendMessage(payload: data, data: Data())
-
+        CoApService.sharedInstance.delegate = self
+        CoApService.sharedInstance.sendMessage(payload: data, data: Data())
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateView), name: NSNotification.Name(rawValue: "receiveRountingTable"), object: nil)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    func updateView() {
         let headerHeight: CGFloat = 160
         let bounds = view.bounds
         let headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: bounds.width, height: headerHeight))
@@ -61,9 +50,6 @@ class TopographyViewController: UIViewController {
         headerView.setNeedsLayout()
         scrollView.contentSize = CGSize.zero
         scrollView.setContentOffset(CGPoint.zero, animated: false)
-//        scrollView.minimumZoomScale = 0.5
-//        scrollView.maximumZoomScale = 2
-//        scrollView.delegate = self
         let rttree = RTTree(root: rootAddress, routingInfo: routingInfo)
         routingMap.forEach { _, node in
             let view = NodeView(frame: CGRect(
@@ -87,6 +73,10 @@ class TopographyViewController: UIViewController {
         }
         scrollView.contentSize = CGSize.init(width: maxSize.width + widthSpacing,
                                              height: maxSize.height + heightSpacing * 4)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
     }
     
