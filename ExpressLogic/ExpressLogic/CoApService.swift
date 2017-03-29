@@ -16,6 +16,8 @@ protocol CoApServiceDelegate: class {
 
 class CoApService: NSObject {
 
+    static let sharedInstance = CoApService()
+    
     weak var delegate: CoApServiceDelegate?
     var coapClient: SCClient!
     

@@ -15,3 +15,12 @@ extension TopographyViewController: UIScrollViewDelegate {
     }
     
 }
+
+extension TopographyViewController: CoApServiceDelegate {
+    
+    func coapService(didReceiveMessage message: SCMessage) {
+        print("received")
+        print(message)
+    }
+    
+}

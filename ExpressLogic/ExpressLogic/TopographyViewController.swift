@@ -10,6 +10,7 @@ import UIKit
 
 class TopographyViewController: UIViewController {
     
+    let coapService = CoApService()
     var scrollView: UIScrollView!
     let heightSpacing: CGFloat = 32
     let widthSpacing: CGFloat = 120
@@ -39,6 +40,13 @@ class TopographyViewController: UIViewController {
         blackView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         blackView.backgroundColor = UIColor(white: 0, alpha: 0.5)
         self.view.addSubview(blackView)
+        
+        let api: Array<UInt8> = [1]
+        let data = Data(bytes: api)
+        
+        coapService.delegate = self
+//        CoApService.sharedInstance.delegate = self
+        coapService.sendMessage(payload: data, data: Data())
 
     }
     
@@ -53,7 +61,9 @@ class TopographyViewController: UIViewController {
         headerView.setNeedsLayout()
         scrollView.contentSize = CGSize.zero
         scrollView.setContentOffset(CGPoint.zero, animated: false)
-        scrollView.delegate = self
+//        scrollView.minimumZoomScale = 0.5
+//        scrollView.maximumZoomScale = 2
+//        scrollView.delegate = self
         let rttree = RTTree(root: rootAddress, routingInfo: routingInfo)
         routingMap.forEach { _, node in
             let view = NodeView(frame: CGRect(
