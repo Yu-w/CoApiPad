@@ -32,12 +32,18 @@ class TopographyViewController: UIViewController {
         blackView.backgroundColor = UIColor(white: 0, alpha: 0.5)
         self.view.addSubview(blackView)
         
-        let api: Array<UInt8> = [1]
-        let data = Data(bytes: api)
+
         
         CoApService.sharedInstance.delegate = self
-        CoApService.sharedInstance.sendMessage(payload: data, data: Data())
+        send()
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateView), name: NSNotification.Name(rawValue: "receiveRountingTable"), object: nil)
+    }
+    
+    func send() {
+        print("Send Packet")
+        let api: Array<UInt8> = [1]
+        let data = Data(bytes: api)
+        CoApService.sharedInstance.sendMessage(payload: data, data: Data())
     }
     
     func updateView() {

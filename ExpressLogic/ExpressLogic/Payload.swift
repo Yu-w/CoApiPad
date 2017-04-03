@@ -13,7 +13,7 @@ class Payload {
     init(buffer: Data) {
         switch buffer.first! {
         case UInt8(3):
-            let bytes = Array(buffer.hexEncodedString().dropFirst())
+            let bytes = buffer.subdata(in: 1..<buffer.count).swapUInt32Data().hexEncodedString()
             var res = ""
             for i in 0..<bytes.count {
                 res += bytes[i]
@@ -43,4 +43,16 @@ extension Data {
     func hexEncodedString() -> [String] {
         return map { String(format: "%02hhx", $0) }
     }
+    
+    func swapUInt32Data() -> Data {
+        var mdata = self // make a mutable copy
+        let count = self.count / MemoryLayout<UInt32>.size
+        mdata.withUnsafeMutableBytes { (i32ptr: UnsafeMutablePointer<UInt32>) in
+            for i in 0..<count {
+                i32ptr[i] =  i32ptr[i].byteSwapped
+            }
+        }
+        return mdata
+    }
+    
 }

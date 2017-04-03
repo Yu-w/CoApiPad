@@ -26,9 +26,11 @@ class CoApService: NSObject {
         coapClient = SCClient(delegate: self)
     }
     
-    func sendMessage(payload: Data, data: Data, hostName: String="localhost") {
+    func sendMessage(payload: Data, data: Data, hostName: String="2602:30a:2c15:56f0:0200:11:2233:4422") {
         let m = SCMessage(code: SCCodeValue(classValue: 0, detailValue: 01)!, type: .confirmable, payload: payload)
-        m.addOption(SCOption.uriPath.rawValue, data: data)
+        m.addOption(SCOption.uriPath.rawValue, data: "dest_table".data(using: .utf8)!)
+        m.addOption(SCOption.uriPath.rawValue, data: "6lowpan".data(using: .utf8)!)
+        m.addOption(SCOption.uriPath.rawValue, data: "global".data(using: .utf8)!)
         coapClient.sendCoAPMessage(m, hostName: hostName, port: 5683)
     }
     
