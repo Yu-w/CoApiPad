@@ -55,9 +55,16 @@ class TagView: UIView {
     
     func clicked(_ sender:UITapGestureRecognizer){
         isSelected = true
-        print("clicked")
         self.setNeedsLayout()
 
+        let popover = Popover()
+        let popoverView = UIView.loadFromNibNamed("NodePopoverView") as! NodePopoverView
+        popover.show(popoverView, fromView: self)
+        popover.didDismissHandler = { () in
+            self.isSelected = false
+            self.setNeedsLayout()
+        }
+        popoverView.frame = CGRect(x: 0, y: 0, width: 320, height: 200)
     }
 }
 
