@@ -10,7 +10,7 @@ import UIKit
 
 var routingInfo: [(String, String)] = []
 
-class TopographyViewController: UIViewController {
+class TopographyViewController: UIViewController, TagViewDelegate {
     
     var scrollView: UIScrollView!
     let heightSpacing: CGFloat = 32
@@ -77,6 +77,7 @@ class TopographyViewController: UIViewController {
                 height: TagView.size.height))
             view.setNodeString(node.address)
             view.setNeedsLayout()
+            view.delegate = self
             self.scrollView.addSubview(view)
             node.nodeView = view
         }
@@ -136,6 +137,17 @@ class TopographyViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func tagViewDidClicked(target: TagView) {
+        let popover = Popover(options: [PopoverOption.type(.up)])
+        let popoverView = UIView.loadFromNibNamed("NodePopoverView") as! NodePopoverView
+        popover.show(popoverView, fromView: target, inView: self.view)
+        popover.didDismissHandler = { () in
+            target.isSelected = false
+            target.setNeedsLayout()
+        }
+        popoverView.frame = CGRect(x: 0, y: 0, width: 320, height: 200)
     }
 
 }
