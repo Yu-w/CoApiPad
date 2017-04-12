@@ -16,7 +16,7 @@ class RTNode {
     var width: Int = 0
     var level: Int = 0
     var top: Int = 0
-    var nodeView: NodeView?
+    var nodeView: TagView?
     
     init(address: String) {
         self.address = address

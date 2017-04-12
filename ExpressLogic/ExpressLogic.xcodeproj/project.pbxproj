@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55579A631E9EB8E100B66B06 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55579A621E9EB8E100B66B06 /* TagView.swift */; };
 		558EC9F51E71BB540023F3E4 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558EC9F41E71BB540023F3E4 /* HeaderView.swift */; };
 		8809509A1E70AC0F00F85592 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880950991E70AC0F00F85592 /* AppDelegate.swift */; };
 		8809509C1E70AC0F00F85592 /* TopographyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8809509B1E70AC0F00F85592 /* TopographyViewController.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		55579A621E9EB8E100B66B06 /* TagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		558EC9F41E71BB540023F3E4 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		880950961E70AC0F00F85592 /* ExpressLogic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpressLogic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		880950991E70AC0F00F85592 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				8881D1F21E8C4B49007C37B1 /* Payload.swift */,
 				BAC54B241E70C3E20056CD5E /* Line.swift */,
 				880950D71E70BE5B00F85592 /* NodeView.swift */,
+				55579A621E9EB8E100B66B06 /* TagView.swift */,
 				558EC9F41E71BB540023F3E4 /* HeaderView.swift */,
 				880950DB1E711B2D00F85592 /* RTNode.swift */,
 				880950D51E70AF1A00F85592 /* RTTree.swift */,
@@ -330,6 +333,7 @@
 				8881D1F31E8C4B49007C37B1 /* Payload.swift in Sources */,
 				BAC54B251E70C3E20056CD5E /* Line.swift in Sources */,
 				880950DE1E720B8B00F85592 /* TopographyViewControllerEx.swift in Sources */,
+				55579A631E9EB8E100B66B06 /* TagView.swift in Sources */,
 				880950D41E70AD3100F85592 /* SCServer.swift in Sources */,
 				8809509A1E70AC0F00F85592 /* AppDelegate.swift in Sources */,
 				880950DC1E711B2D00F85592 /* RTNode.swift in Sources */,
