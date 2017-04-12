@@ -83,7 +83,6 @@ class TopographyViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
     }
     
     private func drawLineBetweenNodes(root: RTNode) {
@@ -101,6 +100,18 @@ class TopographyViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 180, height: 44))
+        button.setTitle("Click to Popover", for: .normal)
+        button.center = self.view.center
+        self.view.addSubview(button)
+        button.addTarget(self, action: #selector(self.buttonDidClicked(button:)), for: .touchUpInside)
+    }
+    
+    func buttonDidClicked(button: UIButton) {
+        let popover = Popover()
+        let popoverView = UIView.loadFromNibNamed("NodePopoverView") as! NodePopoverView
+        popover.show(popoverView, fromView: button)
+        popoverView.frame = CGRect(x: 0, y: 0, width: 320, height: 200)
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
