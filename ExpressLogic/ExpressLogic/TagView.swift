@@ -68,11 +68,11 @@ class TagView: UIView {
 extension TagView {
     
     func tailPoint() -> CGPoint {
-        return CGPoint(x: self.frame.maxX * 1.6, y: self.frame.midY)
+        return CGPoint(x: self.frame.maxX * 1.05, y: self.frame.midY)
     }
     
     func headPoint() -> CGPoint {
-        return CGPoint(x: self.frame.minX, y: self.frame.midY)
+        return CGPoint(x: self.frame.minX * 0.98, y: self.frame.midY)
     }
     
 }
