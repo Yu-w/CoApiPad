@@ -63,7 +63,7 @@ class TopographyViewController: UIViewController, TagViewDelegate {
         self.view.addSubview(headerView)
         self.view.addSubview(scrollView)
         headerView.setNeedsLayout()
-        scrollView.contentSize = CGSize.zero
+        scrollView.contentSize = CGSize(width: bounds.width, height: bounds.height - headerHeight)
         scrollView.setContentOffset(CGPoint.zero, animated: false)
         let rttree = RTTree(root: rootAddress, routingInfo: routingInfo)
         routingMap.forEach { _, node in
@@ -79,16 +79,16 @@ class TopographyViewController: UIViewController, TagViewDelegate {
             node.nodeView = view
         }
         drawLineBetweenNodes(root: rttree.root)
-        let maxSize = routingMap
-            .map {_, v in v}
-            .flatMap {n in n.nodeView}
-            .reduce(CGSize.zero) {
-                accum, cur in
-                return CGSize(width: max(accum.width, cur.frame.maxX),
-                              height: max(accum.height, cur.frame.maxY))
-        }
-        scrollView.contentSize = CGSize.init(width: maxSize.width + widthSpacing,
-                                             height: maxSize.height + heightSpacing * 4)
+//        let maxSize = routingMap
+//            .map {_, v in v}
+//            .flatMap {n in n.nodeView}
+//            .reduce(CGSize.zero) {
+//                accum, cur in
+//                return CGSize(width: max(accum.width, cur.frame.maxX),
+//                              height: max(accum.height, cur.frame.maxY))
+//        }
+//        scrollView.contentSize = CGSize.init(width: maxSize.width + widthSpacing,
+//                                             height: maxSize.height + heightSpacing * 4)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -123,11 +123,12 @@ class TopographyViewController: UIViewController, TagViewDelegate {
     
     func tagViewDidClicked(target: TagView) {
         var popover: Popover
-        if (target.frame.maxY + 200 > self.view.bounds.maxY){
+        if (target.frame.maxY + 400 > self.view.bounds.maxY){
             popover = Popover(options: [PopoverOption.type(.up)])
         }else {
             popover = Popover(options: [PopoverOption.type(.down)])
         }
+        
         
         let popoverView = UIView.loadFromNibNamed("NodePopoverView") as! NodePopoverView
         popover.show(popoverView, fromView: target, inView: self.view)
