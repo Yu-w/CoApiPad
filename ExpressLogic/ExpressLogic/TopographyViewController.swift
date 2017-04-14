@@ -27,6 +27,17 @@ class TopographyViewController: UIViewController, TagViewDelegate {
                        ("2001:0470:f81e:3000:fec2:3d00:0004:e9c1", "2001:0470:f81e:3000:fec2:3d00:0004:e9c1"),
                        ("2001:0470:f81e:3000:0204:2519:1801:aa3b", "2001:0470:f81e:3000:fec2:3d00:0004:a063"),
                        ("2001:0470:f81e:3000:0204:2519:1801:aa3a", "2001:0470:f81e:3000:fec2:3d00:0004:a063")]
+    let routingLoc = [(195,138),
+                      (470,176),
+                      (470,319),
+                      (773,262),
+                      (84,384),
+                      (558,603),
+                      (571,455),
+                      (281,603),
+                      (195,665),
+                      (848,453),
+                      (366,138)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,12 +77,15 @@ class TopographyViewController: UIViewController, TagViewDelegate {
         scrollView.contentSize = CGSize(width: bounds.width, height: bounds.height - headerHeight)
         scrollView.setContentOffset(CGPoint.zero, animated: false)
         let rttree = RTTree(root: rootAddress, routingInfo: routingInfo)
+        var count = 0
+        print(routingMap)
         routingMap.forEach { _, node in
             let view = TagView(frame: CGRect(
-                x: CGFloat(node.level - 1) * (TagView.size.width + widthSpacing) + widthSpacing,
-                y: (TagView.size.height / 2 + heightSpacing) * CGFloat(node.top),
+                x: CGFloat(routingLoc[count].0),
+                y: CGFloat(routingLoc[count].1)-130,
                 width:  TagView.size.width,
                 height: TagView.size.height))
+            count += 1
             view.setNodeString(node.address)
             view.setNeedsLayout()
             view.delegate = self
