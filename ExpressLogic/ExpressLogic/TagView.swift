@@ -75,4 +75,8 @@ extension TagView {
         return CGPoint(x: self.frame.minX * 0.98, y: self.frame.midY)
     }
     
+    func centerPoint() -> CGPoint {
+        return CGPoint(x: self.frame.midX, y: self.frame.midY)
+    }
+    
 }

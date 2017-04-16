@@ -37,6 +37,40 @@ class Line: NSObject {
         view.layer.addSublayer(line)
         
     }
+    
+    
+    static func drawLineWithoutCircle(in view: UIView, from start: CGPoint, to end: [CGPoint]) {
+        let line = CAShapeLayer()
+        let linePath = UIBezierPath()
+        let path = CGMutablePath()
+        
+        end.forEach { (p) in
+            let points = newPoints(from: start, to: p, distance: 40)
+            let newstart = points[0]
+            let newend = points[1]
+            path.arrow(from: newstart, to: newend, tailwidth: 2.5, headwidth: 12, headLength: 16)
+            path.move(to: newstart)
+            path.closeSubpath()
+        }
+        linePath.cgPath = path
+        line.path = linePath.cgPath
+        line.strokeColor = UIColor.white.cgColor
+        line.fillColor = UIColor.white.cgColor
+        line.lineWidth = 1.6
+        view.layer.addSublayer(line)
+    }
+    
+    
+    static func newPoints(from start: CGPoint, to end: CGPoint, distance d: CGFloat) -> [CGPoint] {
+        let x = end.x - start.x
+        let y = end.y - start.y
+        let length = hypot(x, y)
+        let normx = x / length
+        let normy = y / length
+        return [CGPoint(x: start.x + d * normx, y: start.y + d * normy),
+                CGPoint(x: end.x - d * normx, y: end.y - d * normy)]
+    }
+
 }
 
 extension CGMutablePath {
