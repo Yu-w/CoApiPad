@@ -38,7 +38,7 @@ class TagView: UIView {
         let longpressGesture = UILongPressGestureRecognizer(target: self, action:  #selector (self.longpress (_:)))
         self.addGestureRecognizer(longpressGesture)
         
-        let tapGesture = UIGestureRecognizer(target: self, action: #selector(self.clicked(_:)))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.clicked(_:)))
         self.addGestureRecognizer(tapGesture)
 
     }
@@ -64,13 +64,13 @@ class TagView: UIView {
     }
     
     func clicked(_ sender:UIGestureRecognizer){
-        toggle = true
+        toggle = !toggle
         self.setNeedsLayout()
         delegate?.tagViewDidClicked(target: self)
     }
     
     func longpress(_ sender:UILongPressGestureRecognizer){
-        if (sender.state == UIGestureRecognizerState.began) {
+        if (sender.state == .began) {
             delegate?.tagViewDidLongPress(target: self)
         }
     }

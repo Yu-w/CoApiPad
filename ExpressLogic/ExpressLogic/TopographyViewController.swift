@@ -140,23 +140,22 @@ class TopographyViewController: UIViewController, TagViewDelegate {
     func tagViewDidClicked(target: TagView) {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "memory-chip"))
         
-        imageView.frame = CGRect(origin: (rttree.root.nodeView?.centerPoint())!, size: CGSize(width: 24, height: 24))
-        self.view.addSubview(imageView)
+        let origin = (rttree.root.nodeView?.centerPoint())!
+        imageView.frame = CGRect(origin: origin, size: CGSize(width: 24, height: 24))
+        self.scrollView.addSubview(imageView)
         
         let path = UIBezierPath()
-        var parents:[RTNode] = []
-        while let p = routingMap[target.address]?.parent {
-            parents.append(p)
+        path.move(to: origin)
+        routingMap[target.address]?.parents?.forEach{ (p) in
+            path.addLine(to: (p.nodeView?.centerPoint())!)
         }
-        parents.forEach{ (p) in
-            path.move(to: (p.nodeView?.centerPoint())!)
-        }
+        path.addLine(to: target.centerPoint())
+        path.close()
+        
         let animation = CAKeyframeAnimation(keyPath: "position")
         animation.path = path.cgPath
         animation.repeatCount = 0
         animation.duration = 5.0
-        animation.fillMode = kCAFillModeForwards
-        animation.isRemovedOnCompletion = false
         imageView.layer.add(animation, forKey: "animate position along path")
         
     }

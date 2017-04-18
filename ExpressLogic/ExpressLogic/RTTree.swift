@@ -18,6 +18,7 @@ class RTTree {
 
     init(root: String, routingInfo: [(String, String)]) {
         routingMap[root] = RTNode(address: root)
+        routingMap[root]?.parents = nil
         routingInfo.forEach { (dest, nextHop) in
             if routingMap[dest] == nil {
                 routingMap[dest] = RTNode(address: dest)
@@ -29,10 +30,11 @@ class RTTree {
         routingInfo.forEach{ (dest, nextHop) in
             if dest == nextHop {
                 routingMap[root]!.children.append(routingMap[dest]!)
-                routingMap[dest]!.parent = routingMap[root]!
+                routingMap[dest]!.parents?.append(routingMap[root]!)
             } else {
                 routingMap[nextHop]!.children.append(routingMap[dest]!)
-                routingMap[dest]!.parent = routingMap[nextHop]!
+                routingMap[dest]!.parents = routingMap[nextHop]!.parents
+                routingMap[dest]!.parents?.append(routingMap[nextHop]!)
             }
         }
         self.root = routingMap[root]!

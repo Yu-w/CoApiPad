@@ -12,7 +12,7 @@ class RTNode {
     
     var address: String
     var children: [RTNode] = []
-    var parent: RTNode?
+    var parents: [RTNode]? = []
     
     var width: Int = 0
     var level: Int = 0
