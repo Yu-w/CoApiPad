@@ -10,15 +10,17 @@ import UIKit
 
 protocol TagViewDelegate: class {
     func tagViewDidClicked(target: TagView)
+    func tagViewDidLongPress(target: TagView)
 }
 
 class TagView: UIView {
     
     var label: UILabel!
+    var address: String!
     var imageView: UIImageView!
     weak var delegate: TagViewDelegate?
     
-    @IBInspectable var isSelected: Bool = false
+    @IBInspectable var toggle: Bool = false
     
     static let size = CGSize(width: 85, height: 38)
     
@@ -33,14 +35,17 @@ class TagView: UIView {
         self.addSubview(imageView)
         self.sendSubview(toBack: imageView)
         
-        let gesture = UITapGestureRecognizer(target: self, action:  #selector (self.clicked (_:)))
-        self.addGestureRecognizer(gesture)
+        let longpressGesture = UILongPressGestureRecognizer(target: self, action:  #selector (self.longpress (_:)))
+        self.addGestureRecognizer(longpressGesture)
+        
+        let tapGesture = UIGestureRecognizer(target: self, action: #selector(self.clicked(_:)))
+        self.addGestureRecognizer(tapGesture)
 
     }
     override func layoutSubviews() {
         super.layoutSubviews()
         var bgImage     = #imageLiteral(resourceName: "tag")
-        if (isSelected){
+        if (toggle){
             bgImage = #imageLiteral(resourceName: "tagSelected")
         }
         imageView.image = bgImage
@@ -58,10 +63,16 @@ class TagView: UIView {
         self.label.text = "V71"
     }
     
-    func clicked(_ sender:UITapGestureRecognizer){
-        isSelected = true
+    func clicked(_ sender:UIGestureRecognizer){
+        toggle = true
         self.setNeedsLayout()
         delegate?.tagViewDidClicked(target: self)
+    }
+    
+    func longpress(_ sender:UILongPressGestureRecognizer){
+        if (sender.state == UIGestureRecognizerState.began) {
+            delegate?.tagViewDidLongPress(target: self)
+        }
     }
 }
 

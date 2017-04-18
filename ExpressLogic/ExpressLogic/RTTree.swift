@@ -29,8 +29,10 @@ class RTTree {
         routingInfo.forEach{ (dest, nextHop) in
             if dest == nextHop {
                 routingMap[root]!.children.append(routingMap[dest]!)
+                routingMap[dest]!.parent = routingMap[root]!
             } else {
                 routingMap[nextHop]!.children.append(routingMap[dest]!)
+                routingMap[dest]!.parent = routingMap[nextHop]!
             }
         }
         self.root = routingMap[root]!

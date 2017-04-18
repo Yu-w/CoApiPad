@@ -15,6 +15,7 @@ class TopographyViewController: UIViewController, TagViewDelegate {
     var scrollView: UIScrollView!
     let heightSpacing: CGFloat = 32
     let widthSpacing: CGFloat = 120
+    var rttree: RTTree!
         
     let rootAddress = "2001:0470:f81e:3000:2c09:0aff:fe00:76c8"
     let routingInfo = [("fe80:0000:0000:0000:fec2:3d00:0004:a2da", "fe80:0000:0000:0000:fec2:3d00:0004:a2da"),
@@ -76,7 +77,7 @@ class TopographyViewController: UIViewController, TagViewDelegate {
         headerView.setNeedsLayout()
         scrollView.contentSize = CGSize(width: bounds.width, height: bounds.height - headerHeight)
         scrollView.setContentOffset(CGPoint.zero, animated: false)
-        let rttree = RTTree(root: rootAddress, routingInfo: routingInfo)
+        self.rttree = RTTree(root: rootAddress, routingInfo: routingInfo)
         var count = 0
         print(routingMap)
         routingMap.forEach { _, node in
@@ -86,7 +87,8 @@ class TopographyViewController: UIViewController, TagViewDelegate {
                 width:  TagView.size.width,
                 height: TagView.size.height))
             count += 1
-            view.setNodeString(node.address)
+            view.setNodeString(node.address)    // TODO: use node.name
+            view.address = node.address
             view.setNeedsLayout()
             view.delegate = self
             self.scrollView.addSubview(view)
@@ -136,6 +138,29 @@ class TopographyViewController: UIViewController, TagViewDelegate {
     }
     
     func tagViewDidClicked(target: TagView) {
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "memory-chip"))
+        
+        imageView.frame = CGRect(origin: (rttree.root.nodeView?.centerPoint())!, size: CGSize(width: 24, height: 24))
+        self.view.addSubview(imageView)
+        
+        let path = UIBezierPath()
+        var parents:[RTNode] = []
+        while let p = routingMap[target.address]?.parent {
+            parents.append(p)
+        }
+        parents.forEach{ (p) in
+            path.move(to: (p.nodeView?.centerPoint())!)
+        }
+        let animation = CAKeyframeAnimation(keyPath: "position")
+        animation.path = path.cgPath
+        animation.repeatCount = 0
+        animation.duration = 5.0
+        animation.fillMode = kCAFillModeForwards
+        animation.isRemovedOnCompletion = false
+        imageView.layer.add(animation, forKey: "animate position along path")
+        
+    }
+    func tagViewDidLongPress(target: TagView) {
         var popover: Popover
         if (target.frame.maxY + 400 > self.view.bounds.maxY){
             popover = Popover(options: [PopoverOption.type(.up)])
@@ -146,13 +171,11 @@ class TopographyViewController: UIViewController, TagViewDelegate {
         
         let popoverView = UIView.loadFromNibNamed("NodePopoverView") as! NodePopoverView
         popover.show(popoverView, fromView: target, inView: self.view)
-        popover.didDismissHandler = { () in
-            target.isSelected = false
-            target.setNeedsLayout()
-        }
+//        popover.didDismissHandler = { () in
+//            target.setNeedsLayout()
+//        }
         popoverView.frame = CGRect(x: 0, y: 0, width: 320, height: 200)
     }
-
 }
 
 
