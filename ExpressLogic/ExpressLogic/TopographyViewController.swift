@@ -87,7 +87,7 @@ class TopographyViewController: UIViewController, TagViewDelegate {
                 width:  TagView.size.width,
                 height: TagView.size.height))
             count += 1
-            view.setNodeString(node.address)    // TODO: use node.name
+            view.setNodeString(count.description)    // TODO: use node.name
             view.address = node.address
             view.setNeedsLayout()
             view.delegate = self

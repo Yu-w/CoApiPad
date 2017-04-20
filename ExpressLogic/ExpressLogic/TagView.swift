@@ -60,7 +60,7 @@ class TagView: UIView {
     }
     
     func setNodeString(_ text: String) {
-        self.label.text = "V71"
+        self.label.text = text
     }
     
     func clicked(_ sender:UIGestureRecognizer){
