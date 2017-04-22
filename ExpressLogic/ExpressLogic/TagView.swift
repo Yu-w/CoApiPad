@@ -22,7 +22,7 @@ class TagView: UIView {
     
     @IBInspectable var toggle: Bool = false
     
-    static let size = CGSize(width: 85, height: 38)
+    static let size = CGSize(width: 70, height: 38)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -50,7 +50,7 @@ class TagView: UIView {
             bgImage = #imageLiteral(resourceName: "tagSelected")
         }
         imageView.image = bgImage
-        label.frame = CGRect(x: TagView.size.height / 2 + 12,
+        label.frame = CGRect(x: TagView.size.height / 2 + 9,
                              y: 0,
                              width: TagView.size.width / 2,
                              height: TagView.size.height)
