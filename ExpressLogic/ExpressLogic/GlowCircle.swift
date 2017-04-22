@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class LiquittableCircle : UIView {
+class GlowCircle : UIView {
     
     var points: [CGPoint] = []
     var isGrow = false {
