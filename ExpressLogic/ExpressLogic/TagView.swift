@@ -30,6 +30,7 @@ class TagView: UIView {
         label = UILabel(frame: CGRect.zero)
         label.textAlignment = .right
         label.textColor = UIColor(red:0.96, green:0.65, blue:0.14, alpha:1.00)
+        label.font = UIFont.boldSystemFont(ofSize: 14)
         self.addSubview(label)
         imageView   = UIImageView(frame: self.bounds)
         self.addSubview(imageView)
@@ -49,7 +50,7 @@ class TagView: UIView {
             bgImage = #imageLiteral(resourceName: "tagSelected")
         }
         imageView.image = bgImage
-        label.frame = CGRect(x: TagView.size.height,
+        label.frame = CGRect(x: TagView.size.height / 2 + 12,
                              y: 0,
                              width: TagView.size.width / 2,
                              height: TagView.size.height)
