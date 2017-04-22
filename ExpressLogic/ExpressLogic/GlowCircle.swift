@@ -25,13 +25,9 @@ class GlowCircle : UIView {
     var color: UIColor = UIColor.red
     var growColor: UIColor = UIColor.white
     
-    init(center: CGPoint, radius: CGFloat, color: UIColor, growColor: UIColor?) {
+    init(center: CGPoint, radius: CGFloat) {
         let frame = CGRect(x: center.x - radius, y: center.y - radius, width: 2 * radius, height: 2 * radius)
         self.radius = radius
-        self.color = color
-        if growColor != nil {
-            self.growColor = growColor!
-        }
         super.init(frame: frame)
         setup()
     }

@@ -138,7 +138,7 @@ class TopographyViewController: UIViewController, TagViewDelegate {
     }
     
     func tagViewDidClicked(target: TagView) {
-        let glowCircle = GlowCircle(center: CGPoint.zero, radius: 12, color: UIColor.red, growColor: UIColor.blue)
+        let glowCircle = GlowCircle(center: CGPoint.zero, radius: 12)
         glowCircle.grow(isGrow: true)
         self.scrollView.addSubview(glowCircle)
         
@@ -160,14 +160,15 @@ class TopographyViewController: UIViewController, TagViewDelegate {
         CATransaction.begin()
         CATransaction.setCompletionBlock {
             glowCircle.removeFromSuperview()
-            pulseAnimations.forEach { $0.removeFromSuperlayer() }
-            pulseAnimations.removeAll()
+            DispatchQueue.delay(1) {
+                pulseAnimations.forEach { $0.removeFromSuperlayer() }
+            }
         }
         
         let animation = CAKeyframeAnimation(keyPath: "position")
         animation.path = path.cgPath
         animation.repeatCount = 0
-        animation.duration = 5.0
+        animation.duration = TimeInterval(pathNodes?.count ?? 0)
         glowCircle.layer.add(animation, forKey: "animate position along path")
         CATransaction.commit()
 

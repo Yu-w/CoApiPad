@@ -37,6 +37,7 @@
 		88D65D491EABFDB700E80595 /* CircularGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D65D481EABFDB700E80595 /* CircularGradientLayer.swift */; };
 		88D65D4B1EABFDC300E80595 /* CGPointEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D65D4A1EABFDC300E80595 /* CGPointEx.swift */; };
 		88D65D4D1EABFDD300E80595 /* CGRectEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D65D4C1EABFDD300E80595 /* CGRectEx.swift */; };
+		88D65D4F1EAC05ED00E80595 /* Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D65D4E1EAC05ED00E80595 /* Delay.swift */; };
 		BAC54B251E70C3E20056CD5E /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC54B241E70C3E20056CD5E /* Line.swift */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +97,7 @@
 		88D65D481EABFDB700E80595 /* CircularGradientLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularGradientLayer.swift; sourceTree = "<group>"; };
 		88D65D4A1EABFDC300E80595 /* CGPointEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPointEx.swift; sourceTree = "<group>"; };
 		88D65D4C1EABFDD300E80595 /* CGRectEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRectEx.swift; sourceTree = "<group>"; };
+		88D65D4E1EAC05ED00E80595 /* Delay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delay.swift; sourceTree = "<group>"; };
 		BAC54B241E70C3E20056CD5E /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,6 +169,7 @@
 				88D65D301E9EBAFE00E80595 /* Popover.swift */,
 				88D65D341E9EC21600E80595 /* NodePopoverView.swift */,
 				88D65D401EABED9D00E80595 /* LFTPulseAnimation.swift */,
+				88D65D4E1EAC05ED00E80595 /* Delay.swift */,
 				88D65D321E9EBFF100E80595 /* NodePopoverView.xib */,
 				8809509D1E70AC0F00F85592 /* Main.storyboard */,
 				88D65D361E9EC26700E80595 /* UIViewExtension.swift */,
@@ -381,6 +384,7 @@
 				880950D41E70AD3100F85592 /* SCServer.swift in Sources */,
 				8809509A1E70AC0F00F85592 /* AppDelegate.swift in Sources */,
 				880950DC1E711B2D00F85592 /* RTNode.swift in Sources */,
+				88D65D4F1EAC05ED00E80595 /* Delay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
