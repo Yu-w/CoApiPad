@@ -17,8 +17,7 @@ class TopographyViewController: UIViewController, TagViewDelegate {
     let widthSpacing: CGFloat = 120
     let headerHeight: CGFloat = 160
     var rttree: RTTree!
-    var pulseAnimations = [LFTPulseAnimation]()
-        
+    
     let rootAddress = "2001:0470:f81e:3000:2c09:0aff:fe00:76c8"
     let routingInfo = [("fe80:0000:0000:0000:fec2:3d00:0004:a2da", "fe80:0000:0000:0000:fec2:3d00:0004:a2da"),
                        ("fe80:0000:0000:0000:fec2:3d00:0004:7bde", "fe80:0000:0000:0000:fec2:3d00:0004:7bde"),
@@ -145,7 +144,7 @@ class TopographyViewController: UIViewController, TagViewDelegate {
         
         let path = UIBezierPath()
         var pathNodes = routingMap[target.address]?.findPathNodes()
-        
+        var pulseAnimations = [LFTPulseAnimation]()
         pathNodes?.forEach({ (p) in
             let pulseEffect = LFTPulseAnimation(repeatCount: Float.infinity, radius: 44, position: p.nodeView!.headPoint())
             pulseAnimations.append(pulseEffect)
@@ -161,8 +160,8 @@ class TopographyViewController: UIViewController, TagViewDelegate {
         CATransaction.begin()
         CATransaction.setCompletionBlock {
             glowCircle.removeFromSuperview()
-            self.pulseAnimations.forEach { $0.removeFromSuperlayer() }
-            self.pulseAnimations.removeAll()
+            pulseAnimations.forEach { $0.removeFromSuperlayer() }
+            pulseAnimations.removeAll()
         }
         
         let animation = CAKeyframeAnimation(keyPath: "position")
