@@ -15,7 +15,9 @@ class TopographyViewController: UIViewController, TagViewDelegate {
     var scrollView: UIScrollView!
     let heightSpacing: CGFloat = 32
     let widthSpacing: CGFloat = 120
+    let headerHeight: CGFloat = 160
     var rttree: RTTree!
+    var pulseAnimations = [LFTPulseAnimation]()
         
     let rootAddress = "2001:0470:f81e:3000:2c09:0aff:fe00:76c8"
     let routingInfo = [("fe80:0000:0000:0000:fec2:3d00:0004:a2da", "fe80:0000:0000:0000:fec2:3d00:0004:a2da"),
@@ -68,7 +70,6 @@ class TopographyViewController: UIViewController, TagViewDelegate {
     }
     
     func updateView() {
-        let headerHeight: CGFloat = 160
         let bounds = view.bounds
         let headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: bounds.width, height: headerHeight))
         scrollView = UIScrollView(frame: CGRect(x: 0, y: headerHeight, width: bounds.width, height: bounds.height - headerHeight))
@@ -138,27 +139,41 @@ class TopographyViewController: UIViewController, TagViewDelegate {
     }
     
     func tagViewDidClicked(target: TagView) {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "memory-chip"))
-        
-        let origin = (rttree.root.nodeView?.centerPoint())!
-        imageView.frame = CGRect(origin: origin, size: CGSize(width: 24, height: 24))
-        self.scrollView.addSubview(imageView)
+        let glowCircle = LiquittableCircle(center: CGPoint.zero, radius: 12, color: UIColor.red, growColor: UIColor.blue)
+        glowCircle.grow(isGrow: true)
+        self.scrollView.addSubview(glowCircle)
         
         let path = UIBezierPath()
-        path.move(to: origin)
-        routingMap[target.address]?.parents?.forEach{ (p) in
-            path.addLine(to: (p.nodeView?.centerPoint())!)
+        var pathNodes = routingMap[target.address]?.findPathNodes()
+        
+        pathNodes?.forEach({ (p) in
+            let pulseEffect = LFTPulseAnimation(repeatCount: Float.infinity, radius: 44, position: p.nodeView!.headPoint())
+            pulseAnimations.append(pulseEffect)
+            scrollView.layer.insertSublayer(pulseEffect, below: p.nodeView!.layer)
+        })
+        
+        let firstNode = pathNodes?.first
+        pathNodes = Array(pathNodes!.dropFirst())
+        path.move(to: firstNode!.nodeView!.headPoint())
+        pathNodes?.forEach { path.addLine(to: $0.nodeView!.headPoint()) }
+        path.addLine(to: pathNodes!.last!.nodeView!.headPoint()) // stop a key frame at the last node
+        
+        CATransaction.begin()
+        CATransaction.setCompletionBlock {
+            glowCircle.removeFromSuperview()
+            self.pulseAnimations.forEach { $0.removeFromSuperlayer() }
+            self.pulseAnimations.removeAll()
         }
-        path.addLine(to: target.centerPoint())
-        path.close()
         
         let animation = CAKeyframeAnimation(keyPath: "position")
         animation.path = path.cgPath
         animation.repeatCount = 0
         animation.duration = 5.0
-        imageView.layer.add(animation, forKey: "animate position along path")
-        
+        glowCircle.layer.add(animation, forKey: "animate position along path")
+        CATransaction.commit()
+
     }
+    
     func tagViewDidLongPress(target: TagView) {
         var popover: Popover
         if (target.frame.maxY + 400 > self.view.bounds.maxY){

@@ -24,3 +24,22 @@ class RTNode {
     }
     
 }
+
+extension RTNode {
+    
+    func findPathNodes() -> [RTNode] {
+        var path: [RTNode] = []
+//        var curNode: RTNode? = self
+//        while curNode != nil {
+//            path.append(curNode!)
+//            curNode = curNode?.parents?.first
+//        }
+//        path.reverse()
+//        return path
+        /// now node's parent contain all parent from that node, weird
+        path.append(contentsOf: self.parents ?? [])
+        path.append(self)
+        return path
+    }
+    
+}
