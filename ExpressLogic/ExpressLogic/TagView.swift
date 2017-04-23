@@ -81,7 +81,7 @@ extension TagView {
     
     func tailPoint() -> CGPoint {
         return headPoint()
-//        return CGPoint(x: self.frame.maxX * 1.05, y: self.frame.midY)
+//        return CGPoint(x: self.frame.maxX + 18, y: self.frame.midY)
     }
     
     func headPoint() -> CGPoint {

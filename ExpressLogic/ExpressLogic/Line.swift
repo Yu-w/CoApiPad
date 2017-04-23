@@ -11,31 +11,52 @@ import CoreGraphics
 
 class Line: NSObject {
     
+    static func getPt(start:CGPoint,end:CGPoint,newX:CGFloat) -> CGPoint {
+        let start_x = start.x
+        let start_y = start.y
+        let end_x = end.x
+        let end_y = end.y
+        let k = (end_y-start_y)/(end_x-start_x)
+        let b = start_y - k*start_x
+        let newY = k*newX+b
+        return CGPoint(x:newX,y:newY)
+    }
+    
+    static func offset(start:CGPoint, p:CGPoint) -> CGFloat {
+        let a: CGFloat = 70.0 + 16.0
+        let b: CGFloat = 20.0 + 10.0
+        let sin_theta = pow(fabs(p.y-start.y) / sqrt(pow((p.y-start.y),2) + pow((p.x-start.x),2)), 2)
+        return a * b / sqrt(a * a * sin_theta + b * b * (1 - sin_theta))
+    }
+    
     static func drawLine(in view: UIView, from start: CGPoint, to end: [CGPoint]) {
-        let circle = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 12.0, height: 12.0))
-        circle.center = start
-        circle.layer.cornerRadius = 6
-        circle.backgroundColor = UIColor.white
-        circle.clipsToBounds = true
-        view.addSubview(circle)
+        end.forEach{ (p) in
+            let newX = (fabs(p.x-start.x) * offset(start:start, p:p) / sqrt(pow((p.y-start.y),2) + pow((p.x-start.x),2))) + start.x
+            let new_start = getPt(start: start, end: p, newX: newX)
+            let new_end = getPt(start: start, end: p, newX: p.x-8)
+            
+            let circle = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 8.0, height: 8.0))
+            circle.center = new_start
+            circle.layer.cornerRadius = 4
+            circle.backgroundColor = UIColor.white
+            circle.clipsToBounds = true
+            view.addSubview(circle)
         
-        let line = CAShapeLayer()
-        let linePath = UIBezierPath()
-        let path = CGMutablePath()
-        path.move(to: start)
-        
-        end.forEach { (p) in
-            path.arrow(from: start, to: p, tailwidth: 2.5, headwidth: 12, headLength: 16)
-            path.move(to: start)
+            let line = CAShapeLayer()
+            let linePath = UIBezierPath()
+            let path = CGMutablePath()
+            
+            path.move(to: new_start)
+            path.arrow(from: new_start, to: new_end, tailwidth: 2.5, headwidth: 12, headLength: 16)
             path.closeSubpath()
+            
+            linePath.cgPath = path
+            line.path = linePath.cgPath
+            line.strokeColor = UIColor.white.cgColor
+            line.fillColor = UIColor.white.cgColor
+            line.lineWidth = 1.6
+            view.layer.addSublayer(line)
         }
-        linePath.cgPath = path
-        line.path = linePath.cgPath
-        line.strokeColor = UIColor.white.cgColor
-        line.fillColor = UIColor.white.cgColor
-        line.lineWidth = 1.6
-        view.layer.addSublayer(line)
-        
     }
     
     
