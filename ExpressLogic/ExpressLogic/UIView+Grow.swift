@@ -13,7 +13,7 @@ extension UIView {
     func grow(_ baseColor: UIColor, radius: CGFloat, shininess: CGFloat) {
         guard let sublayers = layer.sublayers as? [CAShapeLayer]  else { return }
         
-        let growColor = UIColor(hue:0.13, saturation:0.81, brightness:1.00, alpha:1.00)
+        let growColor = Colors.primaryColor
         growShadow(radius, growColor: growColor, shininess: shininess)
         let circle = CAShapeLayer()
         circle.path = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: radius * 2.0, height: radius * 2.0)).cgPath

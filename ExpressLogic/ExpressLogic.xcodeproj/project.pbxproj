@@ -38,6 +38,7 @@
 		88D65D4B1EABFDC300E80595 /* CGPointEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D65D4A1EABFDC300E80595 /* CGPointEx.swift */; };
 		88D65D4D1EABFDD300E80595 /* CGRectEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D65D4C1EABFDD300E80595 /* CGRectEx.swift */; };
 		88D65D4F1EAC05ED00E80595 /* Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D65D4E1EAC05ED00E80595 /* Delay.swift */; };
+		88D65D511EAC736E00E80595 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D65D501EAC736E00E80595 /* Colors.swift */; };
 		BAC54B251E70C3E20056CD5E /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC54B241E70C3E20056CD5E /* Line.swift */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +99,7 @@
 		88D65D4A1EABFDC300E80595 /* CGPointEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPointEx.swift; sourceTree = "<group>"; };
 		88D65D4C1EABFDD300E80595 /* CGRectEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRectEx.swift; sourceTree = "<group>"; };
 		88D65D4E1EAC05ED00E80595 /* Delay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delay.swift; sourceTree = "<group>"; };
+		88D65D501EAC736E00E80595 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		BAC54B241E70C3E20056CD5E /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -169,6 +171,7 @@
 				88D65D301E9EBAFE00E80595 /* Popover.swift */,
 				88D65D341E9EC21600E80595 /* NodePopoverView.swift */,
 				88D65D401EABED9D00E80595 /* LFTPulseAnimation.swift */,
+				88D65D501EAC736E00E80595 /* Colors.swift */,
 				88D65D4E1EAC05ED00E80595 /* Delay.swift */,
 				88D65D321E9EBFF100E80595 /* NodePopoverView.xib */,
 				8809509D1E70AC0F00F85592 /* Main.storyboard */,
@@ -369,6 +372,7 @@
 				880950D31E70AD3100F85592 /* SCMessage.swift in Sources */,
 				88D65D471EABFD9100E80595 /* UIView+Grow.swift in Sources */,
 				880950DA1E71194600F85592 /* CoApService.swift in Sources */,
+				88D65D511EAC736E00E80595 /* Colors.swift in Sources */,
 				880950D21E70AD3100F85592 /* SCClient.swift in Sources */,
 				88D65D491EABFDB700E80595 /* CircularGradientLayer.swift in Sources */,
 				880950D61E70AF1A00F85592 /* RTTree.swift in Sources */,

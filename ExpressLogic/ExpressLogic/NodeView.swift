@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+/// DEPRECATED VIEW! DO NOT USE!
 class NodeView: UIView {
 
     var label: UILabel!
