@@ -23,8 +23,8 @@ class Line: NSObject {
     }
     
     static func offset(start:CGPoint, p:CGPoint) -> CGFloat {
-        let a: CGFloat = 70.0 + 16.0
-        let b: CGFloat = 20.0 + 10.0
+        let a: CGFloat = TagView.size.width - 5
+        let b: CGFloat = TagView.size.height / 2 + 10.0
         let sin_theta = pow(fabs(p.y-start.y) / sqrt(pow((p.y-start.y),2) + pow((p.x-start.x),2)), 2)
         return a * b / sqrt(a * a * sin_theta + b * b * (1 - sin_theta))
     }
