@@ -138,7 +138,7 @@ class TopographyViewController: UIViewController, TagViewDelegate {
     }
     
     func tagViewDidClicked(target: TagView) {
-        let glowCircle = GlowCircle(center: CGPoint.zero, radius: 12)
+        let glowCircle = GlowCircle(center: CGPoint(x: -200, y: 0), radius: 12)
         glowCircle.grow(isGrow: true)
         self.scrollView.addSubview(glowCircle)
         
