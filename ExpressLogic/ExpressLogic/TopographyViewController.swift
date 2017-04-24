@@ -45,7 +45,7 @@ class TopographyViewController: UIViewController, TagViewDelegate {
         super.viewDidLoad()
 
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = #imageLiteral(resourceName: "background_1")
+        backgroundImage.image = #imageLiteral(resourceName: "background_2")
         backgroundImage.contentMode = UIViewContentMode.scaleAspectFill
         self.view.insertSubview(backgroundImage, at: 0)
         
