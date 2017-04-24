@@ -155,7 +155,9 @@ class TopographyViewController: UIViewController, TagViewDelegate {
         pathNodes = Array(pathNodes!.dropFirst())
         path.move(to: firstNode!.nodeView!.headPoint())
         pathNodes?.forEach { path.addLine(to: $0.nodeView!.headPoint()) }
-        path.addLine(to: pathNodes!.last!.nodeView!.headPoint()) // stop a key frame at the last node
+        if (pathNodes!.last?.nodeView) != nil {
+            path.addLine(to: pathNodes!.last!.nodeView!.headPoint()) // stop a key frame at the last node
+        }
         
         CATransaction.begin()
         CATransaction.setCompletionBlock {
