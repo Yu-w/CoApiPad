@@ -152,30 +152,13 @@
 			isa = PBXGroup;
 			children = (
 				880950991E70AC0F00F85592 /* AppDelegate.swift */,
-				8809509B1E70AC0F00F85592 /* TopographyViewController.swift */,
-				880950DD1E720B8B00F85592 /* TopographyViewControllerEx.swift */,
-				880950D91E71194600F85592 /* CoApService.swift */,
-				8881D1F21E8C4B49007C37B1 /* Payload.swift */,
-				BAC54B241E70C3E20056CD5E /* Line.swift */,
-				880950D71E70BE5B00F85592 /* NodeView.swift */,
-				55579A621E9EB8E100B66B06 /* TagView.swift */,
-				558EC9F41E71BB540023F3E4 /* HeaderView.swift */,
-				880950DB1E711B2D00F85592 /* RTNode.swift */,
-				880950D51E70AF1A00F85592 /* RTTree.swift */,
-				88D65D421EABFC2300E80595 /* GlowCircle.swift */,
-				88D65D441EABFC8900E80595 /* CGMath.swift */,
-				88D65D461EABFD9100E80595 /* UIView+Grow.swift */,
-				88D65D4A1EABFDC300E80595 /* CGPointEx.swift */,
-				88D65D4C1EABFDD300E80595 /* CGRectEx.swift */,
-				88D65D481EABFDB700E80595 /* CircularGradientLayer.swift */,
-				88D65D301E9EBAFE00E80595 /* Popover.swift */,
-				88D65D341E9EC21600E80595 /* NodePopoverView.swift */,
-				88D65D401EABED9D00E80595 /* LFTPulseAnimation.swift */,
-				88D65D501EAC736E00E80595 /* Colors.swift */,
-				88D65D4E1EAC05ED00E80595 /* Delay.swift */,
-				88D65D321E9EBFF100E80595 /* NodePopoverView.xib */,
+				88366A811EADBE4900880F36 /* Controllers */,
+				88366A821EADBE5200880F36 /* Services */,
+				88366A831EADBE5F00880F36 /* Models */,
+				88366A851EADBEEB00880F36 /* Utils */,
+				88366A841EADBED900880F36 /* Animations */,
+				88366A801EADBE2F00880F36 /* Views */,
 				8809509D1E70AC0F00F85592 /* Main.storyboard */,
-				88D65D361E9EC26700E80595 /* UIViewExtension.swift */,
 				880950A01E70AC0F00F85592 /* Assets.xcassets */,
 				880950A21E70AC0F00F85592 /* LaunchScreen.storyboard */,
 				880950A51E70AC0F00F85592 /* Info.plist */,
@@ -221,6 +204,71 @@
 				880950D01E70AD3100F85592 /* SCServer.swift */,
 			);
 			path = SwiftCoAP_Library;
+			sourceTree = "<group>";
+		};
+		88366A801EADBE2F00880F36 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				880950D71E70BE5B00F85592 /* NodeView.swift */,
+				55579A621E9EB8E100B66B06 /* TagView.swift */,
+				558EC9F41E71BB540023F3E4 /* HeaderView.swift */,
+				88D65D341E9EC21600E80595 /* NodePopoverView.swift */,
+				88D65D321E9EBFF100E80595 /* NodePopoverView.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		88366A811EADBE4900880F36 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8809509B1E70AC0F00F85592 /* TopographyViewController.swift */,
+				880950DD1E720B8B00F85592 /* TopographyViewControllerEx.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		88366A821EADBE5200880F36 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				880950D91E71194600F85592 /* CoApService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		88366A831EADBE5F00880F36 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8881D1F21E8C4B49007C37B1 /* Payload.swift */,
+				880950DB1E711B2D00F85592 /* RTNode.swift */,
+				880950D51E70AF1A00F85592 /* RTTree.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		88366A841EADBED900880F36 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				88D65D401EABED9D00E80595 /* LFTPulseAnimation.swift */,
+				88D65D421EABFC2300E80595 /* GlowCircle.swift */,
+				88D65D441EABFC8900E80595 /* CGMath.swift */,
+				88D65D461EABFD9100E80595 /* UIView+Grow.swift */,
+				88D65D4A1EABFDC300E80595 /* CGPointEx.swift */,
+				88D65D4C1EABFDD300E80595 /* CGRectEx.swift */,
+				88D65D481EABFDB700E80595 /* CircularGradientLayer.swift */,
+			);
+			name = Animations;
+			sourceTree = "<group>";
+		};
+		88366A851EADBEEB00880F36 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BAC54B241E70C3E20056CD5E /* Line.swift */,
+				88D65D301E9EBAFE00E80595 /* Popover.swift */,
+				88D65D501EAC736E00E80595 /* Colors.swift */,
+				88D65D4E1EAC05ED00E80595 /* Delay.swift */,
+				88D65D361E9EC26700E80595 /* UIViewExtension.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
