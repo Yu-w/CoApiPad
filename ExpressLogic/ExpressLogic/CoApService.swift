@@ -42,13 +42,20 @@ class CoApService: NSObject {
 extension CoApService: SCClientDelegate {
     
     func swiftCoapClient(_ client: SCClient, didReceiveMessage message: SCMessage) {
-        print(message.blockBody)
         self.delegate?.coapService(didReceiveMessage: message)
     }
     
     func swiftCoapClient(_ client: SCClient, didSendMessage message: SCMessage, number: Int) {
         print("Did Send Message")
         print("Message: ", message)
+    }
+    
+}
+
+extension SCMessage {
+    
+    func decodePayload() -> String? {
+        return String(data: self.payload!, encoding: .ascii)
     }
     
 }

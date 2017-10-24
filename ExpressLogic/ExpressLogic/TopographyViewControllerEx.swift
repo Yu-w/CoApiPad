@@ -20,6 +20,7 @@ extension TopographyViewController: CoApServiceDelegate {
     
     func coapService(didReceiveMessage message: SCMessage) {
         print("received")
+        print(message.decodePayload()!)
         _ = Payload(buffer: message.payload!)
     }
 }
