@@ -79,7 +79,6 @@ class TopographyViewController: UIViewController, TagViewDelegate {
         scrollView.setContentOffset(CGPoint.zero, animated: false)
         self.rttree = RTTree(root: rootAddress, routingInfo: routingInfo)
         var count = 0
-        print(routingMap)
         routingMap.forEach { _, node in
             let view = TagView(frame: CGRect(
                 x: CGFloat(routingLoc[count].0),

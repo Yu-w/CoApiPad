@@ -26,11 +26,14 @@ class CoApService: NSObject {
         coapClient = SCClient(delegate: self)
     }
     
-    func sendMessage(payload: Data, data: Data, hostName: String="2602:30a:2c15:56f0:0200:11:2233:4422") {
-        let m = SCMessage(code: SCCodeValue(classValue: 0, detailValue: 01)!, type: .confirmable, payload: payload)
+    func sendMessage(payload: Data, data: Data, hostName: String="2003:6a57:35b7:3d4c:211:22ff:fe33:4422") {
+        let m = SCMessage(code: SCCodeValue(classValue: 0, detailValue: 01)!, type: .confirmable, payload: nil)
         m.addOption(SCOption.uriPath.rawValue, data: "dest_table".data(using: .utf8)!)
-        m.addOption(SCOption.uriPath.rawValue, data: "6lowpan".data(using: .utf8)!)
-        m.addOption(SCOption.uriPath.rawValue, data: "global".data(using: .utf8)!)
+        m.addOption(SCOption.uriPath.rawValue, data: "ascii".data(using: .utf8)!)
+        m.addOption(SCOption.block2.rawValue, data: Data(bytes: [4]))
+        coapClient.sendToken = false
+        coapClient.cachingActive = false
+        
         coapClient.sendCoAPMessage(m, hostName: hostName, port: 5683)
     }
     
@@ -39,7 +42,13 @@ class CoApService: NSObject {
 extension CoApService: SCClientDelegate {
     
     func swiftCoapClient(_ client: SCClient, didReceiveMessage message: SCMessage) {
+        print(message.blockBody)
         self.delegate?.coapService(didReceiveMessage: message)
+    }
+    
+    func swiftCoapClient(_ client: SCClient, didSendMessage message: SCMessage, number: Int) {
+        print("Did Send Message")
+        print("Message: ", message)
     }
     
 }
