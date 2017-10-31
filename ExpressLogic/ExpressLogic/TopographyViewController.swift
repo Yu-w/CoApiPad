@@ -55,17 +55,10 @@ class TopographyViewController: UIViewController, TagViewDelegate {
         blackView.backgroundColor = UIColor(white: 0, alpha: 0.5)
         self.view.addSubview(blackView)
         
-        CoApService.sharedInstance.delegate = self
-        send()
         updateView()
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateView), name: NSNotification.Name(rawValue: "receiveRountingTable"), object: nil)
-    }
-    
-    func send() {
-        print("Send Packet")
-        let api: Array<UInt8> = [1]
-        let data = Data(bytes: api)
-        CoApService.sharedInstance.sendMessage(payload: data, data: Data())
+        
+        ChipConnector.shared.run()
     }
     
     func updateView() {

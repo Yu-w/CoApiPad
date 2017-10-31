@@ -26,6 +26,11 @@
 		880950DC1E711B2D00F85592 /* RTNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880950DB1E711B2D00F85592 /* RTNode.swift */; };
 		880950DE1E720B8B00F85592 /* TopographyViewControllerEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880950DD1E720B8B00F85592 /* TopographyViewControllerEx.swift */; };
 		8881D1F31E8C4B49007C37B1 /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8881D1F21E8C4B49007C37B1 /* Payload.swift */; };
+		88CB76C41FA43DB800FFBC88 /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CB76C31FA43DB800FFBC88 /* DataExtension.swift */; };
+		88CB76C61FA822C000FFBC88 /* ChipConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CB76C51FA822C000FFBC88 /* ChipConnector.swift */; };
+		88CB76CB1FA82A0300FFBC88 /* R21Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CB76CA1FA82A0300FFBC88 /* R21Connector.swift */; };
+		88CB76CD1FA82BA300FFBC88 /* CoApServiceDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CB76CC1FA82BA300FFBC88 /* CoApServiceDelegates.swift */; };
+		88CB76CF1FA8361000FFBC88 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CB76CE1FA8361000FFBC88 /* Model.swift */; };
 		88D65D311E9EBAFE00E80595 /* Popover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D65D301E9EBAFE00E80595 /* Popover.swift */; };
 		88D65D331E9EBFF100E80595 /* NodePopoverView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88D65D321E9EBFF100E80595 /* NodePopoverView.xib */; };
 		88D65D351E9EC21600E80595 /* NodePopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D65D341E9EC21600E80595 /* NodePopoverView.swift */; };
@@ -87,6 +92,11 @@
 		880950DB1E711B2D00F85592 /* RTNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTNode.swift; sourceTree = "<group>"; };
 		880950DD1E720B8B00F85592 /* TopographyViewControllerEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopographyViewControllerEx.swift; sourceTree = "<group>"; };
 		8881D1F21E8C4B49007C37B1 /* Payload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Payload.swift; sourceTree = "<group>"; };
+		88CB76C31FA43DB800FFBC88 /* DataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
+		88CB76C51FA822C000FFBC88 /* ChipConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipConnector.swift; sourceTree = "<group>"; };
+		88CB76CA1FA82A0300FFBC88 /* R21Connector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = R21Connector.swift; sourceTree = "<group>"; };
+		88CB76CC1FA82BA300FFBC88 /* CoApServiceDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoApServiceDelegates.swift; sourceTree = "<group>"; };
+		88CB76CE1FA8361000FFBC88 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		88D65D301E9EBAFE00E80595 /* Popover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Popover.swift; sourceTree = "<group>"; };
 		88D65D321E9EBFF100E80595 /* NodePopoverView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NodePopoverView.xib; sourceTree = "<group>"; };
 		88D65D341E9EC21600E80595 /* NodePopoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodePopoverView.swift; sourceTree = "<group>"; };
@@ -230,7 +240,11 @@
 		88366A821EADBE5200880F36 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				88CB76C51FA822C000FFBC88 /* ChipConnector.swift */,
 				880950D91E71194600F85592 /* CoApService.swift */,
+				88CB76CC1FA82BA300FFBC88 /* CoApServiceDelegates.swift */,
+				88CB76CA1FA82A0300FFBC88 /* R21Connector.swift */,
+				88CB76C31FA43DB800FFBC88 /* DataExtension.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -267,6 +281,7 @@
 				88D65D501EAC736E00E80595 /* Colors.swift */,
 				88D65D4E1EAC05ED00E80595 /* Delay.swift */,
 				88D65D361E9EC26700E80595 /* UIViewExtension.swift */,
+				88CB76CE1FA8361000FFBC88 /* Model.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -413,6 +428,7 @@
 				8809509C1E70AC0F00F85592 /* TopographyViewController.swift in Sources */,
 				880950D11E70AD3100F85592 /* GCDAsyncUdpSocket.m in Sources */,
 				88D65D451EABFC8900E80595 /* CGMath.swift in Sources */,
+				88CB76CD1FA82BA300FFBC88 /* CoApServiceDelegates.swift in Sources */,
 				88D65D4B1EABFDC300E80595 /* CGPointEx.swift in Sources */,
 				88D65D431EABFC2300E80595 /* GlowCircle.swift in Sources */,
 				88D65D411EABED9D00E80595 /* LFTPulseAnimation.swift in Sources */,
@@ -426,12 +442,16 @@
 				880950D61E70AF1A00F85592 /* RTTree.swift in Sources */,
 				88D65D311E9EBAFE00E80595 /* Popover.swift in Sources */,
 				88D65D371E9EC26700E80595 /* UIViewExtension.swift in Sources */,
+				88CB76CB1FA82A0300FFBC88 /* R21Connector.swift in Sources */,
 				558EC9F51E71BB540023F3E4 /* HeaderView.swift in Sources */,
+				88CB76C41FA43DB800FFBC88 /* DataExtension.swift in Sources */,
 				8881D1F31E8C4B49007C37B1 /* Payload.swift in Sources */,
 				BAC54B251E70C3E20056CD5E /* Line.swift in Sources */,
 				880950DE1E720B8B00F85592 /* TopographyViewControllerEx.swift in Sources */,
+				88CB76CF1FA8361000FFBC88 /* Model.swift in Sources */,
 				55579A631E9EB8E100B66B06 /* TagView.swift in Sources */,
 				88D65D351E9EC21600E80595 /* NodePopoverView.swift in Sources */,
+				88CB76C61FA822C000FFBC88 /* ChipConnector.swift in Sources */,
 				88D65D4D1EABFDD300E80595 /* CGRectEx.swift in Sources */,
 				880950D41E70AD3100F85592 /* SCServer.swift in Sources */,
 				8809509A1E70AC0F00F85592 /* AppDelegate.swift in Sources */,

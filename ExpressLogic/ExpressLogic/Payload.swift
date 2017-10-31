@@ -39,20 +39,4 @@ class Payload {
     
 }
 
-extension Data {
-    func hexEncodedString() -> [String] {
-        return map { String(format: "%02hhx", $0) }
-    }
-    
-    func swapUInt32Data() -> Data {
-        var mdata = self // make a mutable copy
-        let count = self.count / MemoryLayout<UInt32>.size
-        mdata.withUnsafeMutableBytes { (i32ptr: UnsafeMutablePointer<UInt32>) in
-            for i in 0..<count {
-                i32ptr[i] =  i32ptr[i].byteSwapped
-            }
-        }
-        return mdata
-    }
-    
-}
+
