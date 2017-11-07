@@ -37,9 +37,6 @@ class ChipConnector: NSObject {
         debugPrint("Request update RSSI ...")
         for i in 0..<chipMap.values.count {
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1 * Double(i)) {
-                Array(self.chipMap.values)[i].ping()
-            }
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1 * Double(i + chipMap.values.count)) {
                 Array(self.chipMap.values)[i].getRSSI()
             }
         }
