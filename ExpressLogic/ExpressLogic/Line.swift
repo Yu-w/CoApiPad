@@ -11,6 +11,9 @@ import CoreGraphics
 
 class Line: NSObject {
     
+    static var lines: [CAShapeLayer] = []
+    static var circles: [UIView] = []
+    
     static func getPt(start:CGPoint,end:CGPoint,newX:CGFloat) -> CGPoint {
         let start_x = start.x
         let start_y = start.y
@@ -55,10 +58,19 @@ class Line: NSObject {
             line.strokeColor = UIColor.white.cgColor
             line.fillColor = UIColor.white.cgColor
             line.lineWidth = 1.6
+            lines.append(line)
+            circles.append(circle)
             view.layer.addSublayer(line)
         }
     }
     
+    static func removeAllLines() {
+        lines.forEach { $0.removeFromSuperlayer() }
+    }
+    
+    static func removeAllCircles() {
+        circles.forEach { $0.removeFromSuperview() }
+    }
     
     static func drawLineWithoutCircle(in view: UIView, from start: CGPoint, to end: [CGPoint]) {
         let line = CAShapeLayer()

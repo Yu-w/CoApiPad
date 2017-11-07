@@ -9,18 +9,21 @@
 import UIKit
 
 var routingInfo: [(String, String)] = []
-let movingR21Addr = "fe80:0000:0000:0000:fec2:3d00:0004:e9c1"   // TODO: change this
+let movingR21Addr = "0204:2519:5535:befd"   // TODO: change this
+
+let stationLoc: [(CGFloat, CGFloat)] = [(195,8),
+                                        (195,535),
+                                        (848,23)]
 
 let routingLoc: [(CGFloat, CGFloat)] =
                     [(195,138),
-                    (470,176),
 //                  (470,319),
 //                  (773,262),
 //                  (558,603),
 //                  (571,455),
 //                  (281,603),
                     (195,665),
-                    (848,453)]
+                    (848,153)]
 //                  (366,138)]
 
 class TopographyViewController: UIViewController, TagViewDelegate {
@@ -31,11 +34,11 @@ class TopographyViewController: UIViewController, TagViewDelegate {
     let headerHeight: CGFloat = 160
     var rttree: RTTree!
     
-    let rootAddress = "2001:0470:f81e:3000:2c09:0aff:fe00:76c8"
-    let routingInfo = [("fe80:0000:0000:0000:fec2:3d00:0004:a2da", "fe80:0000:0000:0000:fec2:3d00:0004:a2da"),
-                       ("fe80:0000:0000:0000:fec2:3d00:0004:7bde", "fe80:0000:0000:0000:fec2:3d00:0004:7bde"),
-                       ("fe80:0000:0000:0000:fec2:3d00:0004:a063", "fe80:0000:0000:0000:fec2:3d00:0004:a063"),
-                       ("fe80:0000:0000:0000:fec2:3d00:0004:e9c1", "fe80:0000:0000:0000:fec2:3d00:0004:e9c1")]
+    let rootAddress = "2003:6a57:35b7:3d4c:211:22ff:fe33:4422"
+//    let routingInfo = [("fe80:0000:0000:0000:fec2:3d00:0004:a2da", "fe80:0000:0000:0000:fec2:3d00:0004:a2da"),
+//                       ("fe80:0000:0000:0000:fec2:3d00:0004:7bde", "fe80:0000:0000:0000:fec2:3d00:0004:7bde"),
+//                       ("fe80:0000:0000:0000:fec2:3d00:0004:a063", "fe80:0000:0000:0000:fec2:3d00:0004:a063"),
+//                       ("fe80:0000:0000:0000:fec2:3d00:0004:e9c1", "fe80:0000:0000:0000:fec2:3d00:0004:e9c1")]
 //                       ("2001:0470:f81e:3000:fec2:3d00:0004:a063", "2001:0470:f81e:3000:fec2:3d00:0004:a063"),
 //                       ("2001:0470:f81e:3000:fec2:3d00:0004:a2da", "2001:0470:f81e:3000:fec2:3d00:0004:a2da"),
 //                       ("2001:0470:f81e:3000:fec2:3d00:0004:7bde", "2001:0470:f81e:3000:fec2:3d00:0004:7bde"),
@@ -59,13 +62,21 @@ class TopographyViewController: UIViewController, TagViewDelegate {
         blackView.backgroundColor = UIColor(white: 0, alpha: 0.5)
         self.view.addSubview(blackView)
         
-        updateView()
+//        updateView()
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateView), name: NSNotification.Name(rawValue: "receiveRountingTable"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.redrawLine), name: NSNotification.Name(rawValue: "redrawLine"), object: nil)
         
         ChipConnector.shared.run()
     }
     
-    func updateView() {
+    @objc func redrawLine() {
+        Line.removeAllLines()
+        Line.removeAllCircles()
+        drawLineBetweenNodes(root: rttree.root)
+    }
+    
+    @objc func updateView() {
         let bounds = view.bounds
         let headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: bounds.width, height: headerHeight))
         scrollView = UIScrollView(frame: CGRect(x: 0, y: headerHeight, width: bounds.width, height: bounds.height - headerHeight))
@@ -78,21 +89,23 @@ class TopographyViewController: UIViewController, TagViewDelegate {
         var count = 0
         routingMap.forEach { _, node in
             let isRoot = node.address == rootAddress
+            let isMovingR21 = node.address == movingR21Addr
             let view = TagView(frame: CGRect(
-                x: CGFloat(isRoot ? rootLoc.0 : routingLoc[count].0),
-                y: CGFloat(isRoot ? rootLoc.1 : routingLoc[count].1)-130,
+                x: CGFloat(isMovingR21 ? 300 : isRoot ? rootLoc.0 : routingLoc[count].0),
+                y: CGFloat(isMovingR21 ? 300 : isRoot ? rootLoc.1 : routingLoc[count].1)-130,
                 width:  TagView.size.width,
                 height: TagView.size.height))
-            count += isRoot ? 0 : 1
+            view.tag = count
+            count += isMovingR21 || isRoot ? 0 : 1
             let nodeString = isRoot ? "00" : count < 10 ? "0" + count.description: count.description
-            view.setNodeString(nodeString) // TODO: use node.name
+            view.setNodeString(node.address) // TODO: use node.name
             view.address = node.address
             view.setNeedsLayout()
             view.delegate = self
             self.scrollView.addSubview(view)
             node.nodeView = view
         }
-        //        drawLineBetweenNodes(root: rttree.root) TODO: add this back
+        drawLineBetweenNodes(root: rttree.root)
         
 //        let maxSize = routingMap
 //            .map {_, v in v}
@@ -110,7 +123,7 @@ class TopographyViewController: UIViewController, TagViewDelegate {
         super.viewWillAppear(animated)
     }
     
-    private func drawLineBetweenNodes(root: RTNode) {
+    public func drawLineBetweenNodes(root: RTNode) {
         if !root.children.isEmpty {
             if let nodeView = root.nodeView {
                 let startPoint = nodeView.tailPoint()

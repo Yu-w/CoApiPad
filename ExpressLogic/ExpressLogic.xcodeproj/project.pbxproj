@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		55579A631E9EB8E100B66B06 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55579A621E9EB8E100B66B06 /* TagView.swift */; };
+		558D53BB1FB18C4C00183785 /* ShakingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558D53BA1FB18C4C00183785 /* ShakingNode.swift */; };
 		558EC9F51E71BB540023F3E4 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558EC9F41E71BB540023F3E4 /* HeaderView.swift */; };
 		8809509A1E70AC0F00F85592 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880950991E70AC0F00F85592 /* AppDelegate.swift */; };
 		8809509C1E70AC0F00F85592 /* TopographyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8809509B1E70AC0F00F85592 /* TopographyViewController.swift */; };
@@ -66,6 +67,7 @@
 
 /* Begin PBXFileReference section */
 		55579A621E9EB8E100B66B06 /* TagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		558D53BA1FB18C4C00183785 /* ShakingNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakingNode.swift; sourceTree = "<group>"; };
 		558EC9F41E71BB540023F3E4 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		880950961E70AC0F00F85592 /* ExpressLogic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpressLogic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		880950991E70AC0F00F85592 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 				88D65D4E1EAC05ED00E80595 /* Delay.swift */,
 				88D65D361E9EC26700E80595 /* UIViewExtension.swift */,
 				88CB76CE1FA8361000FFBC88 /* Model.swift */,
+				558D53BA1FB18C4C00183785 /* ShakingNode.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				BAC54B251E70C3E20056CD5E /* Line.swift in Sources */,
 				880950DE1E720B8B00F85592 /* TopographyViewControllerEx.swift in Sources */,
 				88CB76CF1FA8361000FFBC88 /* Model.swift in Sources */,
+				558D53BB1FB18C4C00183785 /* ShakingNode.swift in Sources */,
 				55579A631E9EB8E100B66B06 /* TagView.swift in Sources */,
 				88D65D351E9EC21600E80595 /* NodePopoverView.swift in Sources */,
 				88CB76C61FA822C000FFBC88 /* ChipConnector.swift in Sources */,

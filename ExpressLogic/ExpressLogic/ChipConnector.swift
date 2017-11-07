@@ -12,6 +12,7 @@ class ChipConnector: NSObject {
     
     static let shared = ChipConnector()
     var chipMap = [String: R21Connector]()
+    var updateViewOnce = true
     
     override init() {
         super.init()
@@ -49,6 +50,12 @@ extension ChipConnector: CoApServiceV71Delegate {
     func coapService(didReceiveDestTable destTable: [String]) {
         Array(Set(destTable)).filter({ address in chipMap[address] == nil }).forEach { address in
             self.chipMap[address] = R21Connector(address: address)
+        }
+        
+        if (updateViewOnce) {
+            updateViewOnce = false
+            destTable.forEach { routingInfo.append(($0, $0)) }
+            NotificationCenter.default.post(name:  NSNotification.Name(rawValue: "receiveRountingTable"), object: nil)
         }
 //        debugPrint("dest_table recevied")
 //        debugPrint(destTable)

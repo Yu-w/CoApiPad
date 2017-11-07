@@ -34,15 +34,24 @@ class R21Connector: NSObject {
 extension R21Connector: CoApServiceR21Delegate {
     
     func coapService(didReceiveRSSI rssi: Dictionary<String, Int>) {
-        distTable = rssi.mapValues { r in Model.getDistanceFromRSSI(rssi: r) }
-//        debugPrint("R21 [\(address)] [distance]: \(distTable)")
-        debugPrint("R21 [\(address)] [rssi]: \(rssi)")
+        var mutableRssi = rssi
+        mutableRssi.removeValue(forKey: "053889")
         
-        if self.address == movingR21Addr {
+//        rssi.removeValue(forKey: "053889")
+        distTable = mutableRssi.mapValues { r in Model.getDistanceFromRSSI(rssi: r) }
+//        debugPrint("R21 [\(address)] [distance]: \(distTable)")
+//        debugPrint("R21 [\(address)] [rssi]: \(rssi)")
+        
+        if self.address == movingR21Addr && distTable.count == 3 {
             debugPrint(distTable)
-            let bC = Model.barycentricCoordinate(verticesLoc: routingLoc, distances: distTable.map{ return $0.value })
+            let bC = Model.barycentricCoordinate(verticesLoc: stationLoc, distances: distTable.map{ return $0.value })
             debugPrint(bC)
-            routingMap[movingR21Addr]?.nodeView?.transform = CGAffineTransform(translationX: bC.0, y: bC.1)
+//            routingMap[movingR21Addr]?.nodeView?.transform = CGAffineTransform(translationX: bC.0, y: bC.1)
+            routingMap[movingR21Addr]?.nodeView?.frame = CGRect(x: bC.0, y: bC.1, width: (routingMap[movingR21Addr]?.nodeView?.frame.width)!, height: (routingMap[movingR21Addr]?.nodeView?.frame.height)!)
+            NotificationCenter.default.post(name:  NSNotification.Name(rawValue: "redrawLine"), object: nil)
+        } else {
+            shakeNodes(address: self.address)
+            NotificationCenter.default.post(name:  NSNotification.Name(rawValue: "redrawLine"), object: nil)
         }
     }
     

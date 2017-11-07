@@ -72,7 +72,6 @@ class CoApService: NSObject {
 //        coapClient.sendToken = false
 //        coapClient.cachingActive = false
 //
-//        coapClient.sendCoAPMessage(m, hostName: CoApService.hostName, port: 5683)
 //    }
 
     
