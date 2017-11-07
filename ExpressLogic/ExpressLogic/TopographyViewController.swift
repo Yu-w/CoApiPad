@@ -9,6 +9,19 @@
 import UIKit
 
 var routingInfo: [(String, String)] = []
+let movingR21Addr = "fe80:0000:0000:0000:fec2:3d00:0004:e9c1"   // TODO: change this
+
+let routingLoc: [(CGFloat, CGFloat)] =
+                    [(195,138),
+                    (470,176),
+//                  (470,319),
+//                  (773,262),
+//                  (558,603),
+//                  (571,455),
+//                  (281,603),
+                    (195,665),
+                    (848,453)]
+//                  (366,138)]
 
 class TopographyViewController: UIViewController, TagViewDelegate {
     
@@ -22,24 +35,15 @@ class TopographyViewController: UIViewController, TagViewDelegate {
     let routingInfo = [("fe80:0000:0000:0000:fec2:3d00:0004:a2da", "fe80:0000:0000:0000:fec2:3d00:0004:a2da"),
                        ("fe80:0000:0000:0000:fec2:3d00:0004:7bde", "fe80:0000:0000:0000:fec2:3d00:0004:7bde"),
                        ("fe80:0000:0000:0000:fec2:3d00:0004:a063", "fe80:0000:0000:0000:fec2:3d00:0004:a063"),
-                       ("fe80:0000:0000:0000:fec2:3d00:0004:e9c1", "fe80:0000:0000:0000:fec2:3d00:0004:e9c1"),
-                       ("2001:0470:f81e:3000:fec2:3d00:0004:a063", "2001:0470:f81e:3000:fec2:3d00:0004:a063"),
-                       ("2001:0470:f81e:3000:fec2:3d00:0004:a2da", "2001:0470:f81e:3000:fec2:3d00:0004:a2da"),
-                       ("2001:0470:f81e:3000:fec2:3d00:0004:7bde", "2001:0470:f81e:3000:fec2:3d00:0004:7bde"),
-                       ("2001:0470:f81e:3000:fec2:3d00:0004:e9c1", "2001:0470:f81e:3000:fec2:3d00:0004:e9c1"),
-                       ("2001:0470:f81e:3000:0204:2519:1801:aa3b", "2001:0470:f81e:3000:fec2:3d00:0004:a063"),
-                       ("2001:0470:f81e:3000:0204:2519:1801:aa3a", "2001:0470:f81e:3000:fec2:3d00:0004:a063")]
-    let routingLoc = [(195,138),
-                      (470,176),
-                      (470,319),
-                      (773,262),
-                      (84,384),
-                      (558,603),
-                      (571,455),
-                      (281,603),
-                      (195,665),
-                      (848,453),
-                      (366,138)]
+                       ("fe80:0000:0000:0000:fec2:3d00:0004:e9c1", "fe80:0000:0000:0000:fec2:3d00:0004:e9c1")]
+//                       ("2001:0470:f81e:3000:fec2:3d00:0004:a063", "2001:0470:f81e:3000:fec2:3d00:0004:a063"),
+//                       ("2001:0470:f81e:3000:fec2:3d00:0004:a2da", "2001:0470:f81e:3000:fec2:3d00:0004:a2da"),
+//                       ("2001:0470:f81e:3000:fec2:3d00:0004:7bde", "2001:0470:f81e:3000:fec2:3d00:0004:7bde"),
+//                       ("2001:0470:f81e:3000:fec2:3d00:0004:e9c1", "2001:0470:f81e:3000:fec2:3d00:0004:e9c1"),
+//                       ("2001:0470:f81e:3000:0204:2519:1801:aa3b", "2001:0470:f81e:3000:fec2:3d00:0004:a063")
+//                       ("2001:0470:f81e:3000:0204:2519:1801:aa3a", "2001:0470:f81e:3000:fec2:3d00:0004:a063")]
+    
+    let rootLoc:(CGFloat, CGFloat) = (84,384)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,20 +77,23 @@ class TopographyViewController: UIViewController, TagViewDelegate {
         self.rttree = RTTree(root: rootAddress, routingInfo: routingInfo)
         var count = 0
         routingMap.forEach { _, node in
+            let isRoot = node.address == rootAddress
             let view = TagView(frame: CGRect(
-                x: CGFloat(routingLoc[count].0),
-                y: CGFloat(routingLoc[count].1)-130,
+                x: CGFloat(isRoot ? rootLoc.0 : routingLoc[count].0),
+                y: CGFloat(isRoot ? rootLoc.1 : routingLoc[count].1)-130,
                 width:  TagView.size.width,
                 height: TagView.size.height))
-            count += 1
-            view.setNodeString(count < 10 ? "0" + count.description: count.description) // TODO: use node.name
+            count += isRoot ? 0 : 1
+            let nodeString = isRoot ? "00" : count < 10 ? "0" + count.description: count.description
+            view.setNodeString(nodeString) // TODO: use node.name
             view.address = node.address
             view.setNeedsLayout()
             view.delegate = self
             self.scrollView.addSubview(view)
             node.nodeView = view
         }
-        drawLineBetweenNodes(root: rttree.root)
+        //        drawLineBetweenNodes(root: rttree.root) TODO: add this back
+        
 //        let maxSize = routingMap
 //            .map {_, v in v}
 //            .flatMap {n in n.nodeView}

@@ -68,6 +68,7 @@ class TagView: UIView {
         toggle = !toggle
         self.setNeedsLayout()
         delegate?.tagViewDidClicked(target: self)
+        print(address + ": " + self.frame.debugDescription)
     }
     
     func longpress(_ sender:UILongPressGestureRecognizer){

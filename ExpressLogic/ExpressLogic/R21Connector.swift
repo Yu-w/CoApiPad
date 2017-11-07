@@ -37,6 +37,13 @@ extension R21Connector: CoApServiceR21Delegate {
         distTable = rssi.mapValues { r in Model.getDistanceFromRSSI(rssi: r) }
 //        debugPrint("R21 [\(address)] [distance]: \(distTable)")
         debugPrint("R21 [\(address)] [rssi]: \(rssi)")
+        
+        if self.address == movingR21Addr {
+            debugPrint(distTable)
+            let bC = Model.barycentricCoordinate(verticesLoc: routingLoc, distances: distTable.map{ return $0.value })
+            debugPrint(bC)
+            routingMap[movingR21Addr]?.nodeView?.transform = CGAffineTransform(translationX: bC.0, y: bC.1)
+        }
     }
     
 }
