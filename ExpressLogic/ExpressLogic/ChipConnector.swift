@@ -19,6 +19,10 @@ class ChipConnector: NSObject {
         CoApService.sharedInstance.v71Delegate = self
     }
     
+    func getR21Connector(address: String) -> R21Connector? {
+        return chipMap[address]
+    }
+    
     func run() {
         self.updateDestTable()
         Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { (timer) in
@@ -48,12 +52,16 @@ class ChipConnector: NSObject {
 extension ChipConnector: CoApServiceV71Delegate {
     
     func coapService(didReceiveDestTable destTable: [String]) {
-        Array(Set(destTable)).filter({ address in chipMap[address] == nil }).forEach { address in
+        let destTable = Array(Set(destTable)).filter({ address in chipMap[address] == nil })
+
+        destTable.forEach { address in
             self.chipMap[address] = R21Connector(address: address)
         }
         
         if (updateViewOnce) {
             updateViewOnce = false
+            debugPrint(destTable)
+            routingMap.removeAll()
             destTable.forEach { routingInfo.append(($0, $0)) }
             NotificationCenter.default.post(name:  NSNotification.Name(rawValue: "receiveRountingTable"), object: nil)
         }

@@ -21,6 +21,10 @@ class R21Connector: NSObject {
         self.coapService.r21Delegate = self
     }
     
+    func led() {
+        coapService.led(hostName: CoApService.getFullAddress(from: address))
+    }
+    
     func getRSSI() {
         coapService.getRSSI(hostName: CoApService.getFullAddress(from: address))
     }
