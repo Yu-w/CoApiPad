@@ -9,11 +9,7 @@
 import UIKit
 
 var routingInfo: [(String, String)] = []
-<<<<<<< HEAD
 let movingR21Addr = "0204:2519:5535:befd" //"fe80:0000:0000:0000:fec2:3d00:0004:a2da" //   // TODO: change this
-=======
-let movingR21Addr = "0204:2519:fbbe:8c16"   // TODO: change this
->>>>>>> 46fe85ab605a9ff13a7b32501b9ba6dbee6ce8b0
 
 let stationLoc: [(CGFloat, CGFloat)] = [(195,8),
                                         (195,535),
