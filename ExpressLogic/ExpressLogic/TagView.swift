@@ -15,6 +15,7 @@ protocol TagViewDelegate: class {
 
 class TagView: UIView {
     
+    var r21Connector: R21Connector!
     var label: UILabel!
     var address: String!
     var imageView: UIImageView!
@@ -45,10 +46,10 @@ class TagView: UIView {
     }
     override func layoutSubviews() {
         super.layoutSubviews()
-        var bgImage     = #imageLiteral(resourceName: "tag")
-        if (toggle){
-            bgImage = #imageLiteral(resourceName: "tagSelected")
-        }
+        let bgImage     = #imageLiteral(resourceName: "tag")
+//        if (toggle){
+//            bgImage = #imageLiteral(resourceName: "tagSelected")
+//        }
         imageView.image = bgImage
         label.frame = CGRect(x: TagView.size.height / 2 + 16,
                              y: 0,

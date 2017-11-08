@@ -11,6 +11,7 @@ import UIKit
 enum CoApEncodingType: String {
     case ascii
     case binary
+    case none
 }
 
 class CoApService: NSObject {
@@ -50,6 +51,10 @@ class CoApService: NSObject {
         get(hostName: hostName, method: "RSSI", encodingType: .ascii)
     }
     
+    func led(hostName: String) {
+        get(hostName: hostName, method: "LED", encodingType: .none)
+    }
+    
     func ping(hostName: String) {
         let m = SCMessage(code: SCCodeValue(classValue: 0, detailValue: 01)!, type: .reset, payload: nil)
         coapClient.sendCoAPMessage(m, hostName: hostName, port: 5683)
@@ -58,7 +63,9 @@ class CoApService: NSObject {
     private func get(hostName: String, method: String, encodingType: CoApEncodingType) {
         let m = SCMessage(code: SCCodeValue(classValue: 0, detailValue: 01)!, type: .confirmable, payload: nil)
         m.addOption(SCOption.uriPath.rawValue, data: method.data(using: .utf8)!)
-        m.addOption(SCOption.uriPath.rawValue, data: encodingType.rawValue.data(using: .utf8)!)
+        if encodingType != .none {
+            m.addOption(SCOption.uriPath.rawValue, data: encodingType.rawValue.data(using: .utf8)!)
+        }
         m.addOption(SCOption.block2.rawValue, data: Data(bytes: [4]))
         
         coapClient.sendCoAPMessage(m, hostName: hostName, port: 5683)

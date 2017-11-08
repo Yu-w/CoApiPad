@@ -9,7 +9,11 @@
 import UIKit
 
 var routingInfo: [(String, String)] = []
+<<<<<<< HEAD
 let movingR21Addr = "0204:2519:5535:befd" //"fe80:0000:0000:0000:fec2:3d00:0004:a2da" //   // TODO: change this
+=======
+let movingR21Addr = "0204:2519:fbbe:8c16"   // TODO: change this
+>>>>>>> 46fe85ab605a9ff13a7b32501b9ba6dbee6ce8b0
 
 let stationLoc: [(CGFloat, CGFloat)] = [(195,8),
                                         (195,535),
@@ -95,9 +99,10 @@ class TopographyViewController: UIViewController, TagViewDelegate {
                 y: CGFloat(isMovingR21 ? 300 : isRoot ? rootLoc.1 : routingLoc[count].1)-130,
                 width:  TagView.size.width,
                 height: TagView.size.height))
+//            view.r21Connector = node
             view.tag = count
             count += isMovingR21 || isRoot ? 0 : 1
-            let nodeString = isRoot ? "00" : count < 10 ? "0" + count.description: count.description
+//            let nodeString = isRoot ? "00" : count < 10 ? "0" + count.description: count.description
             view.setNodeString(node.address) // TODO: use node.name
             view.address = node.address
             view.setNeedsLayout()
@@ -186,6 +191,8 @@ class TopographyViewController: UIViewController, TagViewDelegate {
         glowCircle.layer.add(animation, forKey: "animate position along path")
         CATransaction.commit()
 
+        // LED
+        ChipConnector.shared.getR21Connector(address: target.address)?.led()
     }
     
     func tagViewDidLongPress(target: TagView) {
